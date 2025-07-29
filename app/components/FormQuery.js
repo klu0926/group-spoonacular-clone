@@ -55,11 +55,15 @@ export default function FormQuery({ onSearch, loading }) {
 	const intoleranceOptions = ["Dairy", "Egg", "Gluten", "Grain", "Peanut", "Seafood", "Sesame", "Shellfish", "Soy", "Sulfite", "Tree Nut", "Wheat"];
 
 
-	// TODO - SORT
+	//SORT
 	const sortOptions = [
 		{ value: "popularity", label: "Popularity" },
-		// ETC...
+		{ value: "healthiness", label: "Healthiness" },
+		{ value: "price", label: "Price" },
+		{ value: "time", label: "Cooking Time" },
+		{ value: "random", label: "Random" },
 	];
+
 
 	// TODO - HANDLE INPUT FORM CHANGES, NAME/KEY VALUE PAIR
 	const handleInputChange = (e) => {
@@ -272,7 +276,7 @@ export default function FormQuery({ onSearch, loading }) {
 						</select>
 					</div>
 
-						{/* TODO - Max Ready Time?  REALLY? FROM THE API? WORTH IT OR OUT OF SCOPE? */}
+						{/* Max Ready Time?  REALLY? FROM THE API? WORTH IT OR OUT OF SCOPE? */}
 					<div>
 						<label
 							htmlFor="maxReadyTime"
@@ -295,7 +299,7 @@ export default function FormQuery({ onSearch, loading }) {
 					</div>
 				</div>
 
-				{/* TODO - Calories Range FROM API */}
+				{/* Calories Range FROM API */}
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<div>
 					<label
@@ -337,12 +341,27 @@ export default function FormQuery({ onSearch, loading }) {
 
 				{/* TODO - SORT OPTIONS VIA DROP DOWN*/}
 				<div>
-					<label htmlFor="sort">Sort Results By</label>
+					<label
+						htmlFor="sort"
+						className="block text-sm font-medium text-gray-700 mb-2"
+					>
+					Sort Results By
+					</label>
 					<select
 						id="sort"
 						name="sort"
+						value={formData.sort}
+						onChange={handleInputChange}
+						className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
 					>
-						{/* TODO - FILL FROM THE OPTIONS ARRAY */}
+						{sortOptions.map((option) => (
+							<option
+								key={option.value}
+								value={option.value}
+							>
+								{option.label}
+							</option>
+						))}
 					</select>
 				</div>
 
