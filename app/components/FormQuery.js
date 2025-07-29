@@ -17,8 +17,35 @@ export default function FormQuery({ onSearch, loading }) {
 		sort: "popularity",
 	});
 
-	// TODO - CUISINE OPTIONS
-	const cuisineOptions = ["Italian", "Canadian", "Greek", "etc..."];
+// CUISINE OPTIONS
+	const cuisineOptions = [
+		"African",
+		"American",
+		"British",
+		"Cajun",
+		"Caribbean",
+		"Chinese",
+		"Eastern European",
+		"European",
+		"French",
+		"German",
+		"Greek",
+		"Indian",
+		"Irish",
+		"Italian",
+		"Japanese",
+		"Jewish",
+		"Korean",
+		"Latin American",
+		"Mediterranean",
+		"Mexican",
+		"Middle Eastern",
+		"Nordic",
+		"Southern",
+		"Spanish",
+		"Thai",
+		"Vietnamese",
+	];
 
 	// TODO - DIET
 	const dietOptions = ["Vegan", "Carnivore", "etc.."];
@@ -104,12 +131,18 @@ export default function FormQuery({ onSearch, loading }) {
 					<div className="space-y-4">
 						{/* CUISINE */}
 						<div>
-							<label htmlFor="cuisine">Cuisine Type</label>
+							<label 
+								htmlFor="cuisine"
+								className="block text-sm font-medium text-gray-700 mb-2"
+							>
+								Cuisine Type
+							</label>
 							<select
 								id="cuisine"
 								name="cuisine"
 								value={formData.cuisine}
 								onChange={handleInputChange}
+								className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
 							>
 								<option value="">Any Cuisine</option>
 								{cuisineOptions.map((cuisine) => (
