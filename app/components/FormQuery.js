@@ -47,11 +47,13 @@ export default function FormQuery({ onSearch, loading }) {
 		"Vietnamese",
 	];
 
-	// TODO - DIET
-	const dietOptions = ["Vegan", "Carnivore", "etc.."];
+	// DIET
+	const dietOptions = ["Gluten Free", "Ketogenic", "Vegetarian", "Lacto-Vegetarian", "Ovo-Vegetarian", "Vegan", "Pescetarian", "Paleo", "Primal", "Whole30"];
 
-	// TODO - INTOLERANCE/ALLERGIES
-	const intoleranceOptions = ["Nuts", ""];
+
+	// INTOLERANCE/ALLERGIES
+	const intoleranceOptions = ["Dairy", "Egg", "Gluten", "Grain", "Peanut", "Seafood", "Sesame", "Shellfish", "Soy", "Sulfite", "Tree Nut", "Wheat"];
+
 
 	// TODO - SORT
 	const sortOptions = [
