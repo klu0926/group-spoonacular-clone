@@ -89,7 +89,25 @@ export default function FormQuery({ onSearch, loading }) {
 			searchParams.cuisine = formData.cuisine;
 		}
 
-		// TODO - OTHER FORM OPTIONS BASED ON WIREFRAMES
+		// TODO - OTHER FORM OPTIONS BASED ON 
+		// INGREDIENTS
+		if (formData.includeIngredients.trim()) {
+			searchParams.includeIngredients = formData.includeIngredients.trim();
+		}
+
+		if (formData.excludeIngredients.trim()) {
+			searchParams.excludeIngredients = formData.excludeIngredients.trim();
+		}
+
+		// DIET
+		if (formData.diet) {
+			searchParams.diet = formData.diet;
+		}
+
+		// INTOLERANCES
+		if (formData.intolerances) {
+			searchParams.intolerances = formData.intolerances;
+			}
 
 		// SORT OPTION
 		searchParams.sort = formData.sort;
