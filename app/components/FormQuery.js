@@ -296,6 +296,44 @@ export default function FormQuery({ onSearch, loading }) {
 				</div>
 
 				{/* TODO - Calories Range FROM API */}
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+				<div>
+					<label
+						htmlFor="minCalories"
+						className="block text-sm font-medium text-gray-700 mb-2"
+					>
+						Min Calories
+					</label>
+					<input
+						type="number"
+						id="minCalories"
+						name="minCalories"
+						value={formData.minCalories}
+						onChange={handleInputChange}
+						placeholder="e.g., 200"
+						min="0"
+						className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+					/>
+				</div>
+				<div>
+					<label
+						htmlFor="maxCalories"
+						className="block text-sm font-medium text-gray-700 mb-2"
+					>
+						Max Calories
+					</label>
+					<input
+						type="number"
+						id="maxCalories"
+						name="maxCalories"
+						value={formData.maxCalories}
+						onChange={handleInputChange}
+						placeholder="e.g., 800"
+						min="0"
+						className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+					/>
+				</div>
+				</div>
 
 				{/* TODO - SORT OPTIONS VIA DROP DOWN*/}
 				<div>
