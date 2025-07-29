@@ -178,7 +178,24 @@ export default function FormQuery({ onSearch, loading }) {
 							<p className="text-xs text-gray-500 mt-1">Separate multiple ingredients with commas</p>
 						</div>
 
-						{/* TODO - ? EXCLUDE INGREDIENTS */}
+						{/* EXCLUDE INGREDIENTS */}
+						<div>
+						<label
+							htmlFor="excludeIngredients"
+							className="block text-sm font-medium text-gray-700 mb-2"
+						>
+							Exclude Ingredients
+						</label>
+						<input
+							type="text"
+							id="excludeIngredients"
+							name="excludeIngredients"
+							value={formData.excludeIngredients}
+							onChange={handleInputChange}
+							placeholder="e.g., nuts, shellfish"
+							className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+						/>
+					</div>
 					</div>
 
 					{/* TODO - MORE RIGHT COLUMN */}
