@@ -70,6 +70,7 @@ export const FavoritesProvider = ({ children }) => {
 		};
 	};
 
+	
 	// SEARCH FAVORITES
 	const searchFavorites = (searchTerm) => {
 		// TODO
@@ -87,9 +88,9 @@ export const FavoritesProvider = ({ children }) => {
 		getFavoriteById,
 		getFavoritesByIds,
 		searchFavorites,
-		// ???? - TBD MAYBE NOT NECESSARY, CONFIRM SPEC
-		updateFavorite,
 		getFavoritesStats,
+		// ???? - TBD MAYBE NOT NECESSARY, CONFIRM SPEC
+		// updateFavorite,
 	};
 
 	return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>;
