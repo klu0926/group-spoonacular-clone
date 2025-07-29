@@ -65,7 +65,7 @@ export default function FormQuery({ onSearch, loading }) {
 	];
 
 
-	// TODO - HANDLE INPUT FORM CHANGES, NAME/KEY VALUE PAIR
+	//  HANDLE INPUT FORM CHANGES, NAME/KEY VALUE PAIR
 	const handleInputChange = (e) => {
 		// UTIL FUNCTION TO WORK ON MULTIPLE INPUT FIELDS
 		const { name, value } = e.target;
@@ -112,6 +112,19 @@ export default function FormQuery({ onSearch, loading }) {
 		if (formData.intolerances) {
 			searchParams.intolerances = formData.intolerances;
 			}
+		
+		// TIME AND CALORIES
+		if (formData.maxReadyTime) {
+			searchParams.maxReadyTime = formData.maxReadyTime;
+		}
+
+		if (formData.minCalories) {
+			searchParams.minCalories = formData.minCalories;
+		}
+
+		if (formData.maxCalories) {
+			searchParams.maxCalories = formData.maxCalories;
+		}
 
 		// SORT OPTION
 		searchParams.sort = formData.sort;
