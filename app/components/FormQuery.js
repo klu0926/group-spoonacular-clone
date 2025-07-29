@@ -273,6 +273,25 @@ export default function FormQuery({ onSearch, loading }) {
 					</div>
 
 						{/* TODO - Max Ready Time?  REALLY? FROM THE API? WORTH IT OR OUT OF SCOPE? */}
+					<div>
+						<label
+							htmlFor="maxReadyTime"
+							className="block text-sm font-medium text-gray-700 mb-2"
+						>
+							Max Cooking Time (minutes)
+						</label>
+						<input
+							type="number"
+							id="maxReadyTime"
+							name="maxReadyTime"
+							value={formData.maxReadyTime}
+							onChange={handleInputChange}
+							placeholder="e.g., 30"
+							min="1"
+							max="300"
+							className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+						/>
+					</div>
 					</div>
 				</div>
 
