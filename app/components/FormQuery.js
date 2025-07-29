@@ -152,7 +152,10 @@ export default function FormQuery({ onSearch, loading }) {
 	return (
 		<>
 			{/* TODO - ADD handleSubmit() TO BE THE HANDLER FROM page.js TO ACCESS API */}
-			<form>
+			<form
+				onSubmit={handleSubmit}
+				className="space-y-6 dark:text-black"
+			>
 				<div>
 					{/* FORM INPUTS */}
 					<label htmlFor="query">Search Recipes</label>
