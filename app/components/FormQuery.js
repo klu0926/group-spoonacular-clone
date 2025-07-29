@@ -138,7 +138,13 @@ export default function FormQuery({ onSearch, loading }) {
 		setFormData({
 			query: "",
 			cuisine: "",
-			// TODO -
+			includeIngredients: "",
+			excludeIngredients: "",
+			diet: "",
+			intolerances: "",
+			maxReadyTime: "",
+			minCalories: "",
+			maxCalories: "",
 			sort: "popularity",
 		});
 	};
