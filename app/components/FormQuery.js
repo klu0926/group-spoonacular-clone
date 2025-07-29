@@ -151,7 +151,6 @@ export default function FormQuery({ onSearch, loading }) {
 
 	return (
 		<>
-			{/* TODO - ADD handleSubmit() TO BE THE HANDLER FROM page.js TO ACCESS API */}
 			<form
 				onSubmit={handleSubmit}
 				className="space-y-6 dark:text-black"
@@ -298,7 +297,7 @@ export default function FormQuery({ onSearch, loading }) {
 						</select>
 					</div>
 
-						{/* Max Ready Time?  REALLY? FROM THE API? WORTH IT OR OUT OF SCOPE? */}
+						{/* Max Ready Time*/}
 					<div>
 						<label
 							htmlFor="maxReadyTime"
@@ -321,7 +320,7 @@ export default function FormQuery({ onSearch, loading }) {
 					</div>
 				</div>
 
-				{/* Calories Range FROM API */}
+				{/* Calories Range */}
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<div>
 					<label
@@ -361,7 +360,7 @@ export default function FormQuery({ onSearch, loading }) {
 				</div>
 				</div>
 
-				{/* TODO - SORT OPTIONS VIA DROP DOWN*/}
+				{/* SORT OPTIONS */}
 				<div>
 					<label
 						htmlFor="sort"
@@ -387,7 +386,7 @@ export default function FormQuery({ onSearch, loading }) {
 					</select>
 				</div>
 
-				{/* HORIZ FORM QUERY BUTTS */}
+				{/* Buttons*/}
 				<div className="flex gap-4 pt-4">
 				<button
 					type="submit"
