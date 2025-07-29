@@ -1,0 +1,21 @@
+"use client";
+
+// FAVORITES PAGE STUB
+
+export default function FavoritesPage() {
+	// TODO - FAVORITES LOGIC
+
+	// TODO - READ FROM CONTEXT
+
+	// TODO - FAVORITES FILTER MENU
+
+	// TODO - FAVORITES GRID / LIST POPULATION
+
+	// TODO - FAVORITES REMOVE FROM FAVORITES
+
+	// TODO - CLEAR ALL FAVORITES BUTTON
+
+	// TODO - MATCH WIREFRAME / SPEC
+
+	return <div>Favorites</div>;
+}
