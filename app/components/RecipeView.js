@@ -17,50 +17,85 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 
 	return (
 		<>
-			<div>
-				{/* TODO - USE THE IMAGE URL THE API RETURNS  */}
-				<div>
-					<img src="www.todo" />
+			<div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+				{/* Recipe Image  */}
+				<div className="relative">
+					<img
+						src={recipe.image || "/api/placeholder/300/200"}
+						alt={recipe.title}
+						className="w-full h-48 object-cover"
+						onError={(e) => {
+							e.target.src = "/api/placeholder/300/200";
+						}}
+					/>
 
-					{/* TODO - FAVORITE TOGGLE BUTTON USING STATE*/}
-					{showFavoriteButton && <button>FAVE</button>}
+					{/* FAVORITE TOGGLE BUTTON USING STATE*/}
+					{showFavoriteButton && (
+						<button
+							onClick={handleFavoriteClick}
+							className={`absolute top-3 right-3 p-2 rounded-full transition-colors ${isFavorite ? "bg-red-500 text-white hover:bg-red-600" : "bg-white text-gray-400 hover:text-red-500 hover:bg-gray-50"}`}
+							aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+						>
+							<svg
+								className="w-5 h-5"
+								fill="currentColor"
+								viewBox="0 0 20 20"
+							>
+								<path
+									fillRule="evenodd"
+									d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+									clipRule="evenodd"
+								/>
+							</svg>
+						</button>
+					)}
 				</div>
 
-				{/* TODO - RECIPE CONTENT */}
-				<div>
-					<h3>{recipe.title}</h3>
+				{/* RECIPE CONTENT */}
+				<div className="p-4">
+					{/* Title */}
+					<h3 className="font-semibold text-lg text-gray-800 mb-2 line-clamp-2">{recipe.title}</h3>
 
-					{/* TODO - STATS */}
-					<div>
-						{/* SERVINGS FROM API */}
+					{/* Recipe STATS */}
+					<div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-4">
 						{recipe.servings && (
-							<div>
-								{/* WRAP TEXT IN SPAN */}
+							<div className="flex items-center">
+								<span className="mr-1">👥</span>
 								<span>{recipe.servings} servings</span>
 							</div>
 						)}
 						{recipe.healthScore && (
-							<div>
-								{/* WRAP TEXT IN SPAN								 */}
+							<div className="flex items-center">
+								<span className="mr-1">💚</span>
 								<span>{recipe.healthScore}% healthy</span>
 							</div>
 						)}
 					</div>
 
 					{/* RECIPE SUMMARY */}
-					{recipe.summary && <p>{recipe.summary}</p>}
+					{recipe.summary && <p
+						className="text-gray-600 text-sm line-clamp-3 mb-4"
+						>
+						{recipe.summary}
+						</p>}
 
-					{/* TODO - HORIZ ACTION BUTTONS */}
+					{/* ACTION BUTTONS */}
 					<div className="flex gap-2">
-						{/* VIEW RECIPE MODAL */}
-						{showCookingModal && <button>View Recipe</button>}
+						{showCookingModal && (
+							<button
+								onClick={handleViewRecipe}
+								className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors"
+							>
+								View Recipe
+							</button>
+						)}
 
-						{/* RECIPE SOURCE URL */}
 						{recipe.sourceUrl && (
 							<a
 								href={recipe.sourceUrl}
 								target="_blank"
 								rel="noopener noreferrer"
+								className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-4 rounded-md text-sm font-medium text-center transition-colors"
 							>
 								Original Recipe
 							</a>
