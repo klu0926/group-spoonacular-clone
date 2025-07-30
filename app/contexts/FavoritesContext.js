@@ -136,17 +136,54 @@ export const FavoritesProvider = ({ children }) => {
 
 	// GET FAVORITES STATISTICS
 	const getFavoritesStats = () => {
-		// TODO
+		const totalFavorites = favorites.length;
+		const cuisineCount = {};
+		const dietCount = {};
+		let totalCookingTime = 0;
+		let recipesWithTime = 0;
+
+		favorites.forEach((recipe) => {
+			// Count cuisines
+			if (recipe.cuisines) {
+				recipe.cuisines.forEach((cuisine) => {
+					cuisineCount[cuisine] = (cuisineCount[cuisine] || 0) + 1;
+				});
+			}
+
+			// Count diets
+			if (recipe.diets) {
+				recipe.diets.forEach((diet) => {
+					dietCount[diet] = (dietCount[diet] || 0) + 1;
+				});
+			}
+
+			// Calculate average cooking time
+			if (recipe.readyInMinutes) {
+				totalCookingTime += recipe.readyInMinutes;
+				recipesWithTime++;
+			}
+		});
+
+		const averageCookingTime = recipesWithTime > 0 ? Math.round(totalCookingTime / recipesWithTime) : 0;
+		const topCuisine = Object.keys(cuisineCount).reduce((a, b) => (cuisineCount[a] > cuisineCount[b] ? a : b), null);
+		const topDiet = Object.keys(dietCount).reduce((a, b) => (dietCount[a] > dietCount[b] ? a : b), null);
+
 		return {
 			totalFavorites,
-			etc,
+			averageCookingTime,
+			topCuisine,
+			topDiet,
+			cuisineCount,
+			dietCount,
 		};
 	};
 
 	// SEARCH FAVORITES
 	const searchFavorites = (searchTerm) => {
-		// TODO
-		return null;
+		if (!searchTerm.trim()) return favorites;
+
+		const term = searchTerm.toLowerCase();
+		return favorites.filter((recipe) => recipe.title.toLowerCase().includes(term) || recipe.summary?.toLowerCase().includes(term) || recipe.cuisines?.some((cuisine) => cuisine.toLowerCase().includes(term)) || recipe.extendedIngredients?.some((ingredient) => ingredient.name.toLowerCase().includes(term)));
 	};
 
 	// VALS AVAIL TO PAGES VIA CONTEXT
