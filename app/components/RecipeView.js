@@ -17,9 +17,9 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 
 	return (
 		<>
-			<div>
+			<div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
 				{/* TODO - USE THE IMAGE URL THE API RETURNS  */}
-				<div>
+				<div className="relative">
 					<img src="www.todo" />
 
 					{/* TODO - FAVORITE TOGGLE BUTTON USING STATE*/}
@@ -27,33 +27,40 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 				</div>
 
 				{/* TODO - RECIPE CONTENT */}
-				<div>
-					<h3>{recipe.title}</h3>
+				<div className="p-4">
+					<h3 className="font-semibold text-lg text-gray-800 mb-2 line-clamp-2">{recipe.title}</h3>
 
 					{/* TODO - STATS */}
-					<div>
+					<div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-4">
 						{/* SERVINGS FROM API */}
 						{recipe.servings && (
-							<div>
+							<div className="flex flex-wrap gap-1 mb-3">
 								{/* WRAP TEXT IN SPAN */}
 								<span>{recipe.servings} servings</span>
 							</div>
 						)}
 						{recipe.healthScore && (
-							<div>
+							<div className="flex items-center">
 								{/* WRAP TEXT IN SPAN								 */}
-								<span>{recipe.healthScore}% healthy</span>
+								<span className="mr-1">{recipe.healthScore}% healthy</span>
 							</div>
 						)}
 					</div>
 
 					{/* RECIPE SUMMARY */}
-					{recipe.summary && <p>{recipe.summary}</p>}
+					{recipe.summary && <p
+						className="text-gray-600 text-sm line-clamp-3 mb-4"
+						>
+						{recipe.summary}
+						</p>}
 
 					{/* TODO - HORIZ ACTION BUTTONS */}
 					<div className="flex gap-2">
 						{/* VIEW RECIPE MODAL */}
-						{showCookingModal && <button>View Recipe</button>}
+						{showCookingModal && <button
+							className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors"
+							>
+							View Recipe</button>}
 
 						{/* RECIPE SOURCE URL */}
 						{recipe.sourceUrl && (
@@ -61,6 +68,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 								href={recipe.sourceUrl}
 								target="_blank"
 								rel="noopener noreferrer"
+								className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-4 rounded-md text-sm font-medium text-center transition-colors"
 							>
 								Original Recipe
 							</a>
