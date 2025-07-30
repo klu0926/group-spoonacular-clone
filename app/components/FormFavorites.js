@@ -15,16 +15,29 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 
 	// TODO - LIKE THE QUERY FORM
 	// TODO - MAKE ONE VALUE RE-USED IN BOTH PAGES???
-	const cuisineOptions = ["Italian", "Greek", "Chinese", "Candy", "etc..."];
-
-	// TODO - GET SORT FROM PREV PAGE...
+	const cuisineOptions = [
+    'African', 'American', 'British', 'Cajun', 'Caribbean', 'Chinese',
+    'Eastern European', 'European', 'French', 'German', 'Greek', 'Indian',
+    'Irish', 'Italian', 'Japanese', 'Jewish', 'Korean', 'Latin American',
+    'Mediterranean', 'Mexican', 'Middle Eastern', 'Nordic', 'Southern',
+    'Spanish', 'Thai', 'Vietnamese'
+  ];
+   // Sort Options
 	const sortOptions = [
-		{ value: "", label: "Default Order" },
-		{ value: "rev", label: "Reverse Default Order" },
-		{ value: "etc", label: "etc..." },
-	];
+    { value: '', label: 'Default Order' },
+    { value: 'title', label: 'Recipe Name (A-Z)' },
+    { value: 'readyTime', label: 'Cooking Time (Shortest First)' },
+    { value: 'healthScore', label: 'Health Score (Highest First)' }
+  ];
 
-	// TODO - OFFER OTHER SORT OPTIONS FROM API RECIPE JSON OBJ
+  const timeOptions = [
+    { value: '', label: 'Any Time' },
+    { value: '15', label: 'Under 15 minutes' },
+    { value: '30', label: 'Under 30 minutes' },
+    { value: '45', label: 'Under 45 minutes' },
+    { value: '60', label: 'Under 1 hour' },
+    { value: '120', label: 'Under 2 hours' }
+  ];
 
 	// WIP - HANDLE CHANGES TO THE FORM VALUES
 	// NOTE - THIS IS NEARLY 1:1 KVP FROM QUERY FORM LOGIC
