@@ -29,7 +29,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 						}}
 					/>
 
-					{/* TODO - FAVORITE TOGGLE BUTTON USING STATE*/}
+					{/* FAVORITE TOGGLE BUTTON USING STATE*/}
 					{showFavoriteButton && (
 						<button
 							onClick={handleFavoriteClick}
@@ -51,23 +51,23 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 					)}
 				</div>
 
-				{/* TODO - RECIPE CONTENT */}
+				{/* RECIPE CONTENT */}
 				<div className="p-4">
+					{/* Title */}
 					<h3 className="font-semibold text-lg text-gray-800 mb-2 line-clamp-2">{recipe.title}</h3>
 
-					{/* TODO - STATS */}
+					{/* Recipe STATS */}
 					<div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-4">
-						{/* SERVINGS FROM API */}
 						{recipe.servings && (
-							<div className="flex flex-wrap gap-1 mb-3">
-								{/* WRAP TEXT IN SPAN */}
+							<div className="flex items-center">
+								<span className="mr-1">👥</span>
 								<span>{recipe.servings} servings</span>
 							</div>
 						)}
 						{recipe.healthScore && (
 							<div className="flex items-center">
-								{/* WRAP TEXT IN SPAN								 */}
-								<span className="mr-1">{recipe.healthScore}% healthy</span>
+								<span className="mr-1">💚</span>
+								<span>{recipe.healthScore}% healthy</span>
 							</div>
 						)}
 					</div>
