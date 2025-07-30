@@ -2,8 +2,14 @@
 
 // ABOUT PAGE STUB
 
+import BioCard from "../components/BioCards";
+
 export default function AboutPage() {
 	// TODO - NOTHING DYNAMIC ON ABOUT PAGE...
-
-	return <div>About</div>;
+	return (
+		<div>
+			<div>About</div>
+			<BioCard />
+		</div>
+	);
 }
