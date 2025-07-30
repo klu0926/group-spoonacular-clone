@@ -25,18 +25,12 @@ export default function FavoritesPage() {
 	// TODO - THE USER FILTERS FROM THE FORM
 	const [activeFilters, setActiveFilters] = useState({});
 
-	// TODO - READ FROM CONTEXT
-
-	// TODO - FAVORITES FILTER MENU
-
-	// TODO - FAVORITES GRID / LIST POPULATION
-
-	// TODO - FAVORITES REMOVE FROM FAVORITES
-
-	// TODO - CLEAR ALL FAVORITES BUTTON
+	// WIP - USE THE EFFECT TO SET RECIPES
+	useEffect(() => {
+		setFilteredRecipes(favorites);
+	}, [favorites]);
 
 	// TODO - MATCH WIREFRAME / SPEC
-
 	// TODO - ?????
 
 	// TODO - ???? HANDLE FILTERING THE RECIPES AS RECIPES TO SHOW
@@ -54,6 +48,45 @@ export default function FavoritesPage() {
 		// TODO - OTHER API AVAIL LOGIC ON THE recipe OBJ
 
 		// TODO - SORTING  TBD... DO WE REALLY NEED SORTING?
+		// Apply cuisine filter
+		if (filters.cuisine && filters.cuisine !== "all") {
+			filtered = filtered.filter((recipe) => recipe.cuisines && recipe.cuisines.some((cuisine) => cuisine.toLowerCase().includes(filters.cuisine.toLowerCase())));
+		}
+
+		// Apply diet filters
+		if (filters.diets && filters.diets.length > 0) {
+			filtered = filtered.filter((recipe) => recipe.diets && filters.diets.every((diet) => recipe.diets.some((recipeDiet) => recipeDiet.toLowerCase().includes(diet.toLowerCase()))));
+		}
+
+		// Apply ready time filter
+		if (filters.maxReadyTime) {
+			filtered = filtered.filter((recipe) => recipe.readyInMinutes <= filters.maxReadyTime);
+		}
+
+		// Apply ingredient search
+		if (filters.includeIngredients) {
+			const searchTerms = filters.includeIngredients
+				.toLowerCase()
+				.split(",")
+				.map((term) => term.trim());
+			filtered = filtered.filter((recipe) => recipe.extendedIngredients && searchTerms.some((term) => recipe.extendedIngredients.some((ingredient) => ingredient.name.toLowerCase().includes(term))));
+		}
+
+		// Apply sorting
+		if (filters.sortBy) {
+			filtered.sort((a, b) => {
+				switch (filters.sortBy) {
+					case "readyTime":
+						return a.readyInMinutes - b.readyInMinutes;
+					case "title":
+						return a.title.localeCompare(b.title);
+					case "healthScore":
+						return (b.healthScore || 0) - (a.healthScore || 0);
+					default:
+						return 0;
+				}
+			});
+		}
 
 		// SET THE NEW LIST FILTERED STATE VAR
 		setFilteredRecipes(filtered);
@@ -62,6 +95,13 @@ export default function FavoritesPage() {
 	// WIP - IMPLMENTING REMOVE FUNCTION FROM CONTEXT
 	const handleRemoveFavorite = (recipe) => {
 		removeFromFavorites(recipe.id);
+	};
+
+	// WIP - CLEAR
+	const clearAllFavorites = () => {
+		if (window.confirm("Are you sure you want to remove all favorites?")) {
+			favorites.forEach((recipe) => removeFromFavorites(recipe.id));
+		}
 	};
 
 	// TODO - RETURN THE PAGE OF FILTERED RECIPES
