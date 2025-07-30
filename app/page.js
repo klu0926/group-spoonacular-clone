@@ -161,7 +161,15 @@ export default function QueryPage() {
 
 	// WIP - TOGGLE FAVORITES ON QUERY RESULT
 	const handleToggleFavorite = (recipe) => {
-		// TODO
+		// DETERMIME IF RECIPE IS FAVORITE IF favorites context HAS ANY MATCHING ID
+		const isFavorite = favorites.some((fav) => fav.id === recipe.id);
+
+		// UPDATE RECIPE FAVORITE STATE & BUTTON VIZ
+		if (isFavorite) {
+			removeFromFavorites(recipe.id);
+		} else {
+			addToFavorites(recipe);
+		}
 	};
 
 	// FINALLY, RETURN THE PAGE
