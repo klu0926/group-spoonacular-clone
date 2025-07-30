@@ -9,11 +9,14 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 	// GOING TO NEED A MODAL BOOL
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
+	// WIP - NEED A FAVORITE TOGGLE LOGIC
+	const handleFavoriteClick = (e) => {
+		e.stopPropagation();
+		onToggleFavorite(recipe);
+	};
+
 	// TODO - HANDLE THE MODAL VIEW
 	const handleViewRecipe = () => {};
-
-	// TODO - NEED A FAVORITE TOGGLE LOGIC
-	const handleFavoriteClick = (e) => {};
 
 	return (
 		<>
@@ -73,11 +76,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 					</div>
 
 					{/* RECIPE SUMMARY */}
-					{recipe.summary && <p
-						className="text-gray-600 text-sm line-clamp-3 mb-4"
-						>
-						{recipe.summary}
-						</p>}
+					{recipe.summary && <p className="text-gray-600 text-sm line-clamp-3 mb-4">{recipe.summary}</p>}
 
 					{/* ACTION BUTTONS */}
 					<div className="flex gap-2">
