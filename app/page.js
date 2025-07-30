@@ -33,7 +33,7 @@ export default function QueryPage() {
 	// WIP THE FAVORITES CONTEXT VALS & LOGIC
 	const { favorites, addToFavorites, removeFromFavorites } = useFavorites();
 
-	// HANDLE RECIPIES SEARCH FROM FORM QUERY AND IF LOAD MORE BUTTON PRESSED
+	// HANDLE RECIPES SEARCH FROM FORM QUERY AND IF LOAD MORE BUTTON PRESSED
 	const searchRecipes = async (queryParams, isLoadMore = false) => {
 		// WIP - MAKING API QUERY AND FILLING PAGE STATE VARS
 		console.log("RUNNING SEARCH RECIPES");
@@ -159,28 +159,32 @@ export default function QueryPage() {
 		}
 	};
 
-	// TODO - TOGGLE FAVORITES ON QUERY RESULT
+	// WIP - TOGGLE FAVORITES ON QUERY RESULT
+	const handleToggleFavorite = (recipe) => {
+		// TODO
+	};
 
 	// FINALLY, RETURN THE PAGE
 	return (
 		// WRAP IN DIVS FOR LAYOUT
-		<div className="min-h-screen bg-blue-800">
-			<div className="container mx-auto px-4 py-8 bg-white">
+		// TODO - ALIGN COLOURS AND SPACE AND NAV TO MATCH WIREFRAME
+		<div className="min-h-screen bg-blue-800 py-8">
+			<div className="container mx-auto my-8 px-4 py-8 bg-white">
 				<header className="text-center mb-8">
 					<h1 className="text-4xl font-bold text-gray-800 mb-2">Query for Recipes</h1>
 				</header>
 
-				{/* TODO - SEARCH FORM COMPONENT */}
-				<div>
+				{/* WIP - SEARCH FORM COMPONENT */}
+				<div className="bg-white rounded-lg shadow-md p-6 mb-8">
 					<FormQuery
 						onSearch={searchRecipes}
 						loading={loading}
 					/>
 				</div>
 
-				{/* TODO - ERROR DISPLAY SOMEHOW */}
+				{/* WIP - ERROR DISPLAY MESG */}
 				{error && (
-					<div className="bg-red-100">
+					<div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
 						<strong>Error:</strong> {error}
 					</div>
 				)}
@@ -194,7 +198,13 @@ export default function QueryPage() {
 					</div>
 				)}
 
-				{/* TODO - RECIPE LIST COMPONENT */}
+				{/* WIP - RECIPE LIST COMPONENT */}
+				<RecipeList
+					recipes={recipes}
+					favorites={favorites}
+					onToggleFavorite={handleToggleFavorite}
+					showFavoriteButton={true}
+				/>
 
 				{/* WIP - LOAD MORE BUTTON */}
 				{hasMore && (
@@ -209,10 +219,10 @@ export default function QueryPage() {
 					</div>
 				)}
 
-				{/* TODO - NO RESULTS */}
-				{!loading && recipes.length === 0 && (
-					<div className="text-center">
-						<p>No recipes found. Try adjusting your search criteria.</p>
+				{/* WIP - NO RESULTS */}
+				{!loading && recipes.length === 0 && currentQuery && (
+					<div className="text-center py-12">
+						<p className="text-gray-500 text-lg">No recipes found. Try adjusting your search criteria.</p>
 					</div>
 				)}
 			</div>
