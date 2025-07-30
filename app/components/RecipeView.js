@@ -18,9 +18,16 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 	return (
 		<>
 			<div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-				{/* TODO - USE THE IMAGE URL THE API RETURNS  */}
+				{/* Recipe Image  */}
 				<div className="relative">
-					<img src="www.todo" />
+					<img
+						src={recipe.image || "/api/placeholder/300/200"}
+						alt={recipe.title}
+						className="w-full h-48 object-cover"
+						onError={(e) => {
+							e.target.src = "/api/placeholder/300/200";
+						}}
+					/>
 
 					{/* TODO - FAVORITE TOGGLE BUTTON USING STATE*/}
 					{showFavoriteButton && <button>FAVE</button>}
