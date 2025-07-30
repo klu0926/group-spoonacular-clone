@@ -41,7 +41,6 @@ export default function FavoritesPage() {
 
 	// TODO - ???? HANDLE FILTERING THE RECIPES AS RECIPES TO SHOW
 	const handleFilter = (filters) => {
-		
 		// UPDATE THE ACTIVE FILTERS
 		setActiveFilters(filters);
 
@@ -51,13 +50,18 @@ export default function FavoritesPage() {
 
 		// TODO - CUISINE STRING
 		// TODO - DIET FILTERS
-		// TODO - INGREDIENT FILTERS	
+		// TODO - INGREDIENT FILTERS
 		// TODO - OTHER API AVAIL LOGIC ON THE recipe OBJ
 
 		// TODO - SORTING  TBD... DO WE REALLY NEED SORTING?
-		
+
 		// SET THE NEW LIST FILTERED STATE VAR
 		setFilteredRecipes(filtered);
+	};
+
+	// WIP - IMPLMENTING REMOVE FUNCTION FROM CONTEXT
+	const handleRemoveFavorite = (recipe) => {
+		removeFromFavorites(recipe.id);
 	};
 
 	// TODO - RETURN THE PAGE OF FILTERED RECIPES
