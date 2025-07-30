@@ -17,7 +17,6 @@ export const useFavorites = () => {
 
 // THE CONTEXT PROVIDER OF VALUES & METHODS AVAIL TO ENTIRE APP
 export const FavoritesProvider = ({ children }) => {
-
 	// CONTEXT STATE VARS FOR THE ACTUAL FAVORITES & IF DATE IS LOADING
 	const [favorites, setFavorites] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
@@ -40,7 +39,13 @@ export const FavoritesProvider = ({ children }) => {
 
 	// SAVE FAVORITES TO LOCALSTORAGE WHENEVER FAVORITES CHANGE
 	useEffect(() => {
-		// TODO
+		if (!isLoading) {
+			try {
+				localStorage.setItem("recipe-favorites", JSON.stringify(favorites));
+			} catch (error) {
+				console.error("Error saving favorites to localStorage:", error);
+			}
+		}
 	}, [favorites, isLoading]);
 
 	// WHEN BUTTON IS CLICKED ON RECIPE NOT IN FAVORTIES
@@ -102,20 +107,20 @@ export const FavoritesProvider = ({ children }) => {
 		});
 	};
 
-	// WHEN BUTTON IS CLICKED ON RECIPE ALREADY IN FAVORTIES
-	const removeFromFavorites = (recipeId) => {
-		// TODO
-	};
-
-	// CHECK IF RECIPE IN FAVORITES FOR UX DISPLAY
-	const isFavorite = (recipeId) => {
-		// TODO
-	};
-
 	// CLEAR ALL, CONVENIENCE FUNCTION
 	const clearAllFavorites = () => {
 		// EASY :D
 		setFavorites([]);
+	};
+
+	// WHEN BUTTON IS CLICKED ON RECIPE ALREADY IN FAVORTIES
+	const removeFromFavorites = (recipeId) => {
+		setFavorites((prevFavorites) => prevFavorites.filter((recipe) => recipe.id !== recipeId));
+	};
+
+	// CHECK IF RECIPE IN FAVORITES FOR UX DISPLAY
+	const isFavorite = (recipeId) => {
+		return favorites.some((recipe) => recipe.id === recipeId);
 	};
 
 	// RETURN RECIPE BY PASSED ID
@@ -126,8 +131,7 @@ export const FavoritesProvider = ({ children }) => {
 
 	// RETURN RECIPES BY PASSED IDS ARRAY?
 	const getFavoritesByIds = (recipeIds) => {
-		// TODO - REUSE SINGULAR METHOD ABOVE?
-		return null;
+		return favorites.filter((recipe) => recipeIds.includes(recipe.id));
 	};
 
 	// GET FAVORITES STATISTICS
