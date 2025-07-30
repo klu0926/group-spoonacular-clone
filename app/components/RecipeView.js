@@ -79,15 +79,17 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 						{recipe.summary}
 						</p>}
 
-					{/* TODO - HORIZ ACTION BUTTONS */}
+					{/* ACTION BUTTONS */}
 					<div className="flex gap-2">
-						{/* VIEW RECIPE MODAL */}
-						{showCookingModal && <button
-							className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors"
+						{showCookingModal && (
+							<button
+								onClick={handleViewRecipe}
+								className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors"
 							>
-							View Recipe</button>}
+								View Recipe
+							</button>
+						)}
 
-						{/* RECIPE SOURCE URL */}
 						{recipe.sourceUrl && (
 							<a
 								href={recipe.sourceUrl}
