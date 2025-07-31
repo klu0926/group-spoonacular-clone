@@ -111,10 +111,24 @@ export default function FavoritesPage() {
 		<div className="container  min-h-screen mx-auto px-4 py-8 bg-white rounded-lg">
 			<header className="text-center mb-8">
 				<h1 className="text-4xl font-bold text-gray-800 mb-2">Saved Recipes</h1>
+				<p className="text-gray-600">Your saved recipes, ready for cooking</p>
+				{favorites.length > 0 && (
+					<div className="mt-4 flex justify-center items-center gap-4">
+						<span className="text-sm text-gray-500">
+						{favorites.length} recipe{favorites.length !== 1 ? 's' : ''} saved
+						</span>
+						<button
+						onClick={clearAllFavorites}
+						className="text-sm text-red-600 hover:text-red-800 underline"
+						>
+						Clear All
+						</button>
+					</div>
+					)}
 			</header>
 
 			{favorites.length === 0 ? (
-				// TODO - PROPER UX HANDLE IF NO RECIPES FAVORITED
+				
 				<span>No favorites picked - go pick some!</span>
 			) : (
 				<>
