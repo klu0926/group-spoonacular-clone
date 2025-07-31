@@ -37,7 +37,7 @@ export default function AboutPage() {
 					<BioCard
 						name={"Jasmine Sanders"}
 						image={"https://avatars.githubusercontent.com/u/172424810"}
-						bio={"Bio for Jasmine"}
+						bio={"Running on caffeine, chaos, and questionable decisions."}
 						link={"https://github.com/Jaysandja3y"}
 					/>
 				</div>
