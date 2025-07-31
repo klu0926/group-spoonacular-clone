@@ -42,7 +42,7 @@ export default function CookingModal({ recipe, isOpen, onClose }) {
 		// If instructions is a string, try to split it into steps
 		if (typeof instructions === 'string') {
 			return instructions
-				.split(/\d+\.|\n/)
+				.split(/\d+\.|\n/) // split by number and line break
 				.filter(step => step.trim().length > 0)
 				.map(step => step.trim());
 		}
@@ -63,7 +63,7 @@ export default function CookingModal({ recipe, isOpen, onClose }) {
 		<div className="fixed inset-0 z-50 overflow-y-auto">
 			{/* Backdrop (click to close modal) */}
 			<div
-				className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+				className="fixed inset-0 bg-black/70 transition-opacity"
 				onClick={onClose}
 			/>
 
