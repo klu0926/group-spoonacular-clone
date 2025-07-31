@@ -24,7 +24,7 @@ export default function CookingModal({ recipe, isOpen, onClose }) {
 	const handleIngredientCheck = (index) => {
 		setCheckedIngredients(prev => ({
 			...prev,
-			[index]: !prev[index]
+			[index]: !prev[index] // toggle
 		}));
 	};
 	// convert total minutes into a readable time (hours,minutes,seconds
@@ -149,6 +149,78 @@ export default function CookingModal({ recipe, isOpen, onClose }) {
 					{/* Content */}
 					<div className="p-6 overflow-y-auto max-h-[60vh]">
 						{/* Ingredients Tab */}
+						{activeTab === 'ingredients' && (
+							<div>
+								<div className="flex justify-between items-center mb-4">
+									<h3 className="text-lg font-semibold text-gray-900">
+										Ingredients ({recipe.extendedIngredients?.length || 0})
+									</h3>
+									{/* reset ingredients checklist */}
+									<button
+										onClick={() => setCheckedIngredients({})}
+										className="text-sm text-blue-600 hover:text-blue-800 underline"
+									>
+										Reset Checklist
+									</button>
+								</div>
+
+								{/* check if has any ingredients */}
+								{recipe.extendedIngredients && recipe.extendedIngredients.length > 0 ? (
+
+									/* space-y create margin to all children element */
+									<div className="space-y-3">
+
+										{/* for each ingredient create a check box */}
+										{recipe.extendedIngredients.map((ingredient, index) => (
+											<div
+												key={index}
+												className={`flex items-start p-3 rounded-lg border transition-colors ${checkedIngredients[index]
+													? 'bg-green-50 border-green-200'
+													: 'bg-gray-50 border-gray-200'
+													}`}
+												onClick={() => {
+													handleIngredientCheck(index)
+												}}
+											>
+												{/* use id to toggle the check list */}
+												<input
+													type="checkbox"
+													checked={checkedIngredients[index] || false}
+													onClick={(e) => e.stopPropagation()}    // stop div click here
+													onChange={() => handleIngredientCheck(index)}
+													className="mt-1 rounded border-gray-300 text-green-600 focus:ring-green-500"
+												/>
+												<div className="ml-3 flex-1">
+													<div className={`font-medium ${checkedIngredients[index] ? 'line-through text-gray-500' : 'text-gray-900'
+														}`}>
+														{/* default text*/}
+														{ingredient.amount} {ingredient.unit} {ingredient.name}
+													</div>
+
+													{/* check if ingredient has original text, and if is not the same the 'default text' (what we use for the element above) */}
+													{ingredient.original && ingredient.original !== `${ingredient.amount} ${ingredient.unit} ${ingredient.name}` && (
+														<div className="text-sm text-gray-600 mt-1">
+															{ingredient.original}
+														</div>
+													)}
+												</div>
+												{/* check for image */}
+												{ingredient.image && (
+													<img
+														src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`}
+														alt={ingredient.name}
+														className="w-8 h-8 rounded ml-2"
+													/>
+												)}
+											</div>
+										))}
+									</div>
+								) : (
+									/* have no ingredients*/
+									<p className="text-gray-500 italic">No ingredients information available.</p>
+								)}
+							</div>
+						)}
 
 						{/* Instructions Tab */}
 
@@ -159,7 +231,7 @@ export default function CookingModal({ recipe, isOpen, onClose }) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div >
 	);
 }
 
