@@ -278,6 +278,49 @@ export default function CookingModal({ recipe, isOpen, onClose }) {
 						)}
 
 						{/* Nutrition Tab */}
+						{activeTab === 'nutrition' && (
+							<div>
+								<h3 className="text-lg font-semibold text-gray-900 mb-4">
+									Nutritional Information
+								</h3>
+								{/* in md size make 2 cols for better display */}
+								{recipe.nutrition && recipe.nutrition.nutrients ? (
+									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+										{/* only use the top 8 items from the array to keep it simple */}
+										{recipe.nutrition.nutrients.slice(0, 8).map((nutrient, index) => (
+											<div key={index} className="bg-gray-50 p-4 rounded-lg">
+												<div className="flex justify-between items-center">
+													<span className="font-medium text-gray-900">{nutrient.name}</span>
+													<span className="text-gray-600">
+														{nutrient.amount} {nutrient.unit}
+													</span>
+												</div>
+												{/* get percent of daily needs */}
+												{nutrient.percentOfDailyNeeds && (
+													<div className="mt-2">
+														<div className="flex justify-between text-sm text-gray-500 mb-1">
+															<span>Daily Value</span>
+															<span>{nutrient.percentOfDailyNeeds.toFixed(1)}%</span>
+														</div>
+														<div className="w-full bg-gray-200 rounded-full h-2">
+															{/* using daily needs percent to draw the bar*/}
+															{/* use Math.min to ensure it never goes over 100% */}
+															<div
+																className="bg-blue-600 h-2 rounded-full"
+																style={{ width: `${Math.min(nutrient.percentOfDailyNeeds, 100)}%` }}
+															/>
+														</div>
+													</div>
+												)}
+											</div>
+										))}
+									</div>
+								) : (
+									<p className="text-gray-500 italic">No nutritional information available.</p>
+								)}
+							</div>
+						)}
 
 						{/* Summary Tab */}
 
