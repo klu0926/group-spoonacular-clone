@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 function NavLink({ href, isActive, children }) {
 	return (
 		<Link
-			className={`cursor-pointer py-0.5 px-3 rounded-t -mb-3 ${isActive ? "bg-white text-black" : "bg-gray-300 text-gray-800"}`}
+			className={`cursor-pointer py-0.5 px-3 rounded-t -mb-3 ${isActive ? "bg-slate-100 text-black" : "bg-gray-300 text-gray-800"}`}
 			href={href}
 		>
 			{children}
