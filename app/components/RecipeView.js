@@ -5,14 +5,12 @@ import { useState } from "react";
 import CookingModal from "./CookingModal";
 import { stripHtmlTags } from "../utils/utils";
 
-// TODO - RECIPE VIEW COMPONENT WITH THE FUNCS NEEDED FOR PROPER VIEW
 export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showFavoriteButton = true, showCookingModal = false }) {
 	// GOING TO NEED A MODAL BOOL
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
-	// WIP - NEED A FAVORITE TOGGLE LOGIC
+	// FAVORITE TOGGLE LOGIC
 	const handleFavoriteClick = (e) => {
-		e.stopPropagation();
 		onToggleFavorite(recipe);
 	};
 
