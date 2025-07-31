@@ -21,7 +21,15 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 			setIsModalOpen(true);
 		}
 	};
-	
+
+	const formatTime = (minutes) => {
+		if (!minutes) return "N/A";
+		if (minutes < 60) return `${minutes} min`;
+		const hours = Math.floor(minutes / 60);
+		const mins = minutes % 60;
+		return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+	};
+
 	return (
 		<>
 			<div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -56,6 +64,10 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 							</svg>
 						</button>
 					)}
+
+					{/* Ready Time Badge */}
+					{recipe.readyInMinutes && <div className="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-sm">⏱️ {formatTime(recipe.readyInMinutes)}</div>}
+
 				</div>
 
 				{/* RECIPE CONTENT */}
