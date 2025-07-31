@@ -141,10 +141,27 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 							</a>
 						)}
 					</div>
+
+					{/* Cuisines */}
+					{recipe.cuisines && recipe.cuisines.length > 0 && (
+					<div className="mt-3 pt-3 border-t border-gray-100">
+						<div className="flex flex-wrap gap-1">
+							{recipe.cuisines.slice(0, 3).map((cuisine, index) => (
+								<span
+									key={index}
+									className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
+								>
+									{cuisine}
+								</span>
+							))}
+							{recipe.cuisines.length > 3 && <span className="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded">+{recipe.cuisines.length - 3} more</span>}
+						</div>
+					</div>
+					)}
 				</div>
 			</div>
 
-			{/* TODO - COOKING MODAL COMPONENT */}
+			{/* COOKING MODAL COMPONENT */}
 			{isModalOpen && (
 				<CookingModal
 					recipe={recipe}
