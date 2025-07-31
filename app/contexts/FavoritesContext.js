@@ -61,7 +61,6 @@ export const FavoritesProvider = ({ children }) => {
 			}
 
 			// CREATE A CLEAN RECIPE OBJECT WITH ONLY NECESSARY DATA
-			// TODO - TRIM DOWN TO SCOPE/WIREFRAME
 			const cleanRecipe = {
 				id: recipe.id,
 				title: recipe.title,

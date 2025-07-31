@@ -3,7 +3,6 @@ import { useState } from "react";
 
 export default function FormQuery({ onSearch, loading }) {
 
-	// TODO - WHAT ARE NEEDED, OUT OF SCOPE, ETC...
 	const [formData, setFormData] = useState({
 		query: "",
 		cuisine: "",
