@@ -21,7 +21,7 @@ export default function AboutPage() {
 					<BioCard
 						name={"Clarance Leung"}
 						image={"https://avatars.githubusercontent.com/u/194448761"}
-						bio={"Bio for CL"}
+						bio={"Novice coder. Intermediate project manager. Expert sushi eater."}
 						link={"https://github.com/kn-mn"} />
 					<BioCard
 						name={"Kuo Yu Lu"}
@@ -30,8 +30,8 @@ export default function AboutPage() {
 						link={"https://github.com/klu0926"} />
 					<BioCard
 						name={"Noah Park"}
-						image={"#"}
-						bio={"Bio for Noah"}
+						image={"https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"}
+						bio={"I’m Noah a student at Humber College, I’m an amateur boxer, my favourite movie is Wardogs and I really like pizza."}
 						link={"https://github.com/noahp211"}
 					/>
 					<BioCard
