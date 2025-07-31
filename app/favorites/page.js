@@ -108,7 +108,7 @@ export default function FavoritesPage() {
 
 
 	return (
-		<div className="container  min-h-screen mx-auto px-4 py-8 bg-white rounded-lg">
+		<div className="page-wrapper">
 			<header className="text-center mb-8">
 				<h1 className="text-4xl font-bold text-gray-800 mb-2">Saved Recipes</h1>
 				<p className="text-gray-600">Your saved recipes, ready for cooking</p>
@@ -128,12 +128,25 @@ export default function FavoritesPage() {
 			</header>
 
 			{favorites.length === 0 ? (
-				
-				<span>No favorites picked - go pick some!</span>
+				<div className="text-center py-16">
+					<div className="text-6xl mb-4">🍽️</div>
+					<h2 className="text-2xl font-semibold text-gray-700 mb-2">
+					No Favorites Yet
+					</h2>
+					<p className="text-gray-500 mb-6">
+					Start exploring recipes and save your favorites to see them here!
+					</p>
+					<Link
+					href="/"
+					className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+					>
+					Discover Recipes
+					</Link>
+				</div>
 			) : (
 				<>
-					{/* WIP - FAVORITE FILTER FORM STUB w/PROPS */}
-					<div>
+					{/* FAVORITE FILTER FORM STUB w/PROPS */}
+					<div className="form-style">
 						<FormFavorites
 							onFilter={handleFilter}
 							totalRecipes={favorites.length}
@@ -141,7 +154,26 @@ export default function FavoritesPage() {
 						/>
 					</div>
 
-					{/* WIP - RECIPE LIST COMPONENT OF RECIPE VIEWS, WITH QUERY/FAVORITE STATE */}
+					{/* Results Summary */}
+					<div className="mb-6 flex justify-between items-center">
+						<p className="text-gray-600">
+							Showing {filteredRecipes.length} of {favorites.length} favorite recipes
+						</p>
+						{/* Clear filter button */}
+						{Object.keys(activeFilters).length > 0 && (
+							<button
+							onClick={() => {
+								setActiveFilters({});
+								setFilteredRecipes(favorites);
+							}}
+							className="text-sm text-blue-600 hover:text-blue-800 underline"
+							>
+							Clear Filters
+							</button>
+						)}
+					</div>
+
+					{/* RECIPE LIST COMPONENT OF RECIPE VIEWS, WITH QUERY/FAVORITE STATE */}
 					<RecipeList
 						recipes={filteredRecipes}
 						favorites={favorites}
