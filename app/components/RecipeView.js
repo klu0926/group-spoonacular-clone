@@ -3,6 +3,7 @@
 // RECIPE VIEW, BRIEF DETAILS, FAVE BUTTON, MORE INFO MODAL BUTTON
 import { useState } from "react";
 import CookingModal from "./CookingModal";
+import { stripHtmlTags } from "../utils/utils";
 
 // TODO - RECIPE VIEW COMPONENT WITH THE FUNCS NEEDED FOR PROPER VIEW
 export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showFavoriteButton = true, showCookingModal = false }) {
@@ -116,7 +117,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 					</div>
 
 					{/* RECIPE SUMMARY */}
-					{recipe.summary && <p className="text-gray-600 text-sm line-clamp-3 mb-4">{recipe.summary}</p>}
+					{recipe.summary && <p className="text-gray-600 text-sm line-clamp-3 mb-4">{stripHtmlTags(recipe.summary)}</p>}
 
 					{/* ACTION BUTTONS */}
 					<div className="flex gap-2">
