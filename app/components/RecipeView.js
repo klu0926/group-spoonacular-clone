@@ -30,6 +30,16 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 		return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
 	};
 
+		const getDietBadges = () => {
+		const badges = [];
+		if (recipe.vegetarian) badges.push("Vegetarian");
+		if (recipe.vegan) badges.push("Vegan");
+		if (recipe.glutenFree) badges.push("Gluten-Free");
+		if (recipe.dairyFree) badges.push("Dairy-Free");
+		if (recipe.ketogenic) badges.push("Keto");
+		return badges;
+	};
+
 	return (
 		<>
 			<div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -74,6 +84,20 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 				<div className="p-4">
 					{/* Title */}
 					<h3 className="font-semibold text-lg text-gray-800 mb-2 line-clamp-2">{recipe.title}</h3>
+
+					{/* Diet Badges */}
+					{getDietBadges().length > 0 && (
+						<div className="flex flex-wrap gap-1 mb-3">
+							{getDietBadges().map((badge, index) => (
+								<span
+									key={index}
+									className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full"
+								>
+									{badge}
+								</span>
+							))}
+						</div>
+					)}					
 
 					{/* Recipe STATS */}
 					<div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-4">
