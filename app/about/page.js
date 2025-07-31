@@ -16,22 +16,25 @@ export default function AboutPage() {
 					<BioCard
 						name={"Darryl Lecraw"}
 						image={"https://avatars.githubusercontent.com/u/6304758"}
-						bio={"Bio for Darryl"}
-						link={"https://github.com/BossClaw"} />
+						bio={"Darryl is still thinking about what to write.  Keep your eyes on this space."}
+						link={"https://github.com/BossClaw"}
+					/>
 					<BioCard
 						name={"Clarance Leung"}
 						image={"https://avatars.githubusercontent.com/u/194448761"}
-						bio={"Bio for CL"}
-						link={"https://github.com/kn-mn"} />
+						bio={"Doesn't Overthink things.  Loves Icon Packages."}
+						link={"https://github.com/kn-mn"}
+					/>
 					<BioCard
 						name={"Kuo Yu Lu"}
 						image={"https://avatars.githubusercontent.com/u/106499794"}
 						bio={`Former cinematic wizard turned code-slinging web dev. Built over 100 epic battle cutscenes. now battles bugs in JavaScript. Part-time SQL whisperer, full-time front-end sorcerer. Can debug faster than you can say “unexpected token.” Studying law, psychology, and car resale all at once because… why not? Dreams in Tailwind CSS and occasionally in APA 7 format.`}
-						link={"https://github.com/klu0926"} />
+						link={"https://github.com/klu0926"}
+					/>
 					<BioCard
 						name={"Noah Park"}
-						image={"#"}
-						bio={"Bio for Noah"}
+						image={"https://github.githubassets.com/images/gravatars/gravatar-user-420.png?size=40"}
+						bio={"I’m Noah a student at Humber College, I’m an amateur boxer, my favourite movie is Wardogs and I really like pizza."}
 						link={"https://github.com/noahp211"}
 					/>
 					<BioCard
