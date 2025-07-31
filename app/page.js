@@ -176,64 +176,62 @@ export default function QueryPage() {
 	return (
 		// WRAP IN DIVS FOR LAYOUT
 		// TODO - ALIGN COLOURS AND SPACE AND NAV TO MATCH WIREFRAME
-		<div className="min-h-screen bg-blue-800 py-8">
-			<div className="container mx-auto my-8 px-4 py-8 bg-white">
-				<header className="text-center mb-8">
-					<h1 className="text-4xl font-bold text-gray-800 mb-2">Query for Recipes</h1>
-				</header>
+		<div className="container  min-h-screen mx-auto px-4 py-8 bg-white rounded-lg">
+			<header className="text-center mb-8">
+				<h1 className="text-4xl font-bold text-gray-800 mb-2">Query for Recipes</h1>
+			</header>
 
-				{/* WIP - SEARCH FORM COMPONENT */}
-				<div className="bg-white rounded-lg shadow-md p-6 mb-8">
-					<FormQuery
-						onSearch={searchRecipes}
-						loading={loading}
-					/>
-				</div>
-
-				{/* WIP - ERROR DISPLAY MESG */}
-				{error && (
-					<div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-						<strong>Error:</strong> {error}
-					</div>
-				)}
-
-				{/* WIP - RESULTS FROM API WHICH INCLUDES TOTAL ON EVERY RETURN*/}
-				{totalResults > 0 && (
-					<div className="mb-6">
-						<p className="text-gray-600">
-							Found {totalResults} recipes. Showing {recipes.length} results.
-						</p>
-					</div>
-				)}
-
-				{/* WIP - RECIPE LIST COMPONENT */}
-				<RecipeList
-					recipes={recipes}
-					favorites={favorites}
-					onToggleFavorite={handleToggleFavorite}
-					showFavoriteButton={true}
+			{/* WIP - SEARCH FORM COMPONENT */}
+			<div className="bg-white rounded-lg shadow-md p-6 mb-8">
+				<FormQuery
+					onSearch={searchRecipes}
+					loading={loading}
 				/>
-
-				{/* WIP - LOAD MORE BUTTON */}
-				{hasMore && (
-					<div className="text-center mt-8">
-						<button
-							onClick={loadMoreRecipes}
-							disabled={loading}
-							className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-						>
-							{loading ? "Loading..." : "Load More Recipes"}
-						</button>
-					</div>
-				)}
-
-				{/* WIP - NO RESULTS */}
-				{!loading && recipes.length === 0 && currentQuery && (
-					<div className="text-center py-12">
-						<p className="text-gray-500 text-lg">No recipes found. Try adjusting your search criteria.</p>
-					</div>
-				)}
 			</div>
+
+			{/* WIP - ERROR DISPLAY MESG */}
+			{error && (
+				<div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+					<strong>Error:</strong> {error}
+				</div>
+			)}
+
+			{/* WIP - RESULTS FROM API WHICH INCLUDES TOTAL ON EVERY RETURN*/}
+			{totalResults > 0 && (
+				<div className="mb-6">
+					<p className="text-gray-600">
+						Found {totalResults} recipes. Showing {recipes.length} results.
+					</p>
+				</div>
+			)}
+
+			{/* WIP - RECIPE LIST COMPONENT */}
+			<RecipeList
+				recipes={recipes}
+				favorites={favorites}
+				onToggleFavorite={handleToggleFavorite}
+				showFavoriteButton={true}
+			/>
+
+			{/* WIP - LOAD MORE BUTTON */}
+			{hasMore && (
+				<div className="text-center mt-8">
+					<button
+						onClick={loadMoreRecipes}
+						disabled={loading}
+						className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+					>
+						{loading ? "Loading..." : "Load More Recipes"}
+					</button>
+				</div>
+			)}
+
+			{/* WIP - NO RESULTS */}
+			{!loading && recipes.length === 0 && currentQuery && (
+				<div className="text-center py-12">
+					<p className="text-gray-500 text-lg">No recipes found. Try adjusting your search criteria.</p>
+				</div>
+			)}
 		</div>
 	);
 }

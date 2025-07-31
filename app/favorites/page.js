@@ -107,39 +107,37 @@ export default function FavoritesPage() {
 	// TODO - RETURN THE PAGE OF FILTERED RECIPES
 	return (
 		// TODO - GET THE STYLES MATCHING WIREFRAME & NAV BAR & FIRST PAGE
-		<div className="bg-white">
-			<div className="container mx-auto px-4 py-8">
-				<header className="text-center mb-8">
-					<h1 className="text-4xl font-bold text-gray-800 mb-2">Saved Recipes</h1>
-				</header>
+		<div className="container  min-h-screen mx-auto px-4 py-8 bg-white rounded-lg">
+			<header className="text-center mb-8">
+				<h1 className="text-4xl font-bold text-gray-800 mb-2">Saved Recipes</h1>
+			</header>
 
-				{favorites.length === 0 ? (
-					// TODO - PROPER UX HANDLE IF NO RECIPES FAVORITED
-					<span>No favorites picked - go pick some!</span>
-				) : (
-					<>
-						{/* WIP - FAVORITE FILTER FORM STUB w/PROPS */}
-						<div>
-							<FormFavorites
-								onFilter={handleFilter}
-								totalRecipes={favorites.length}
-								filteredCount={filteredRecipes.length}
-							/>
-						</div>
-
-						{/* WIP - RECIPE LIST COMPONENT OF RECIPE VIEWS, WITH QUERY/FAVORITE STATE */}
-						<RecipeList
-							recipes={filteredRecipes}
-							favorites={favorites}
-							onToggleFavorite={handleRemoveFavorite}
-							showFavoriteButton={true}
-							showCookingModal={true}
+			{favorites.length === 0 ? (
+				// TODO - PROPER UX HANDLE IF NO RECIPES FAVORITED
+				<span>No favorites picked - go pick some!</span>
+			) : (
+				<>
+					{/* WIP - FAVORITE FILTER FORM STUB w/PROPS */}
+					<div>
+						<FormFavorites
+							onFilter={handleFilter}
+							totalRecipes={favorites.length}
+							filteredCount={filteredRecipes.length}
 						/>
+					</div>
 
-						{/* TODO - HANDLE IF NONE MATCH FILTER */}
-					</>
-				)}
-			</div>
+					{/* WIP - RECIPE LIST COMPONENT OF RECIPE VIEWS, WITH QUERY/FAVORITE STATE */}
+					<RecipeList
+						recipes={filteredRecipes}
+						favorites={favorites}
+						onToggleFavorite={handleRemoveFavorite}
+						showFavoriteButton={true}
+						showCookingModal={true}
+					/>
+
+					{/* TODO - HANDLE IF NONE MATCH FILTER */}
+				</>
+			)}
 		</div>
 	);
 }
