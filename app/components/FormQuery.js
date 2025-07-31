@@ -148,11 +148,14 @@ export default function FormQuery({ onSearch, loading }) {
 	};
 
 	return (
-		<>
-			<form onSubmit={handleSubmit} className="space-y-6 dark:text-black"	>
+		<div className="form-style">
+			<form
+				onSubmit={handleSubmit}
+				className="space-y-6"
+			>
 				<div>
 					{/* FORM INPUTS */}
-					<label htmlFor="query">Search Recipes</label>
+					<label htmlFor="query">Query</label>
 
 					<input
 						type="text"
@@ -421,6 +424,6 @@ export default function FormQuery({ onSearch, loading }) {
 					</button>
 				</div>
 			</form>
-		</>
+		</div>
 	);
 }
