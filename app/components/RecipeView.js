@@ -3,6 +3,7 @@
 // RECIPE VIEW, BRIEF DETAILS, FAVE BUTTON, MORE INFO MODAL BUTTON
 import { useState } from "react";
 import CookingModal from "./CookingModal";
+import { stripHtmlTags } from "../utils/utils";
 
 // TODO - RECIPE VIEW COMPONENT WITH THE FUNCS NEEDED FOR PROPER VIEW
 export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showFavoriteButton = true, showCookingModal = false }) {
@@ -15,8 +16,30 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 		onToggleFavorite(recipe);
 	};
 
-	// TODO - HANDLE THE MODAL VIEW
-	const handleViewRecipe = () => {};
+	// HANDLE THE MODAL VIEW
+	const handleViewRecipe = () => {
+		if (showCookingModal) {
+			setIsModalOpen(true);
+		}
+	};
+
+	const formatTime = (minutes) => {
+		if (!minutes) return "N/A";
+		if (minutes < 60) return `${minutes} min`;
+		const hours = Math.floor(minutes / 60);
+		const mins = minutes % 60;
+		return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+	};
+
+		const getDietBadges = () => {
+		const badges = [];
+		if (recipe.vegetarian) badges.push("Vegetarian");
+		if (recipe.vegan) badges.push("Vegan");
+		if (recipe.glutenFree) badges.push("Gluten-Free");
+		if (recipe.dairyFree) badges.push("Dairy-Free");
+		if (recipe.ketogenic) badges.push("Keto");
+		return badges;
+	};
 
 	return (
 		<>
@@ -52,12 +75,30 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 							</svg>
 						</button>
 					)}
+
+					{/* Ready Time Badge */}
+					{recipe.readyInMinutes && <div className="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-sm">⏱️ {formatTime(recipe.readyInMinutes)}</div>}
+
 				</div>
 
 				{/* RECIPE CONTENT */}
 				<div className="p-4">
 					{/* Title */}
 					<h3 className="font-semibold text-lg text-gray-800 mb-2 line-clamp-2">{recipe.title}</h3>
+
+					{/* Diet Badges */}
+					{getDietBadges().length > 0 && (
+						<div className="flex flex-wrap gap-1 mb-3">
+							{getDietBadges().map((badge, index) => (
+								<span
+									key={index}
+									className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full"
+								>
+									{badge}
+								</span>
+							))}
+						</div>
+					)}					
 
 					{/* Recipe STATS */}
 					<div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-4">
@@ -76,7 +117,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 					</div>
 
 					{/* RECIPE SUMMARY */}
-					{recipe.summary && <p className="text-gray-600 text-sm line-clamp-3 mb-4">{recipe.summary}</p>}
+					{recipe.summary && <p className="text-gray-600 text-sm line-clamp-3 mb-4">{stripHtmlTags(recipe.summary)}</p>}
 
 					{/* ACTION BUTTONS */}
 					<div className="flex gap-2">
@@ -100,10 +141,27 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 							</a>
 						)}
 					</div>
+
+					{/* Cuisines */}
+					{recipe.cuisines && recipe.cuisines.length > 0 && (
+					<div className="mt-3 pt-3 border-t border-gray-100">
+						<div className="flex flex-wrap gap-1">
+							{recipe.cuisines.slice(0, 3).map((cuisine, index) => (
+								<span
+									key={index}
+									className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
+								>
+									{cuisine}
+								</span>
+							))}
+							{recipe.cuisines.length > 3 && <span className="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded">+{recipe.cuisines.length - 3} more</span>}
+						</div>
+					</div>
+					)}
 				</div>
 			</div>
 
-			{/* TODO - COOKING MODAL COMPONENT */}
+			{/* COOKING MODAL COMPONENT */}
 			{isModalOpen && (
 				<CookingModal
 					recipe={recipe}
