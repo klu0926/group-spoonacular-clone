@@ -182,7 +182,14 @@ export default function FavoritesPage() {
 						showCookingModal={true}
 					/>
 
-					{/* TODO - HANDLE IF NONE MATCH FILTER */}
+					{/* HANDLE IF NONE MATCH FILTER */}
+					{filteredRecipes.length === 0 && favorites.length > 0 && (
+						<div className="text-center py-12">
+							<p className="text-gray-500 text-lg">
+							No recipes match your current filters. Try adjusting your criteria.
+							</p>
+						</div>
+					)}
 				</>
 			)}
 		</div>
