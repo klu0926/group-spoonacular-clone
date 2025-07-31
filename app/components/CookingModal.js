@@ -223,6 +223,59 @@ export default function CookingModal({ recipe, isOpen, onClose }) {
 						)}
 
 						{/* Instructions Tab */}
+						{activeTab === 'instructions' && (
+							<div>
+								<h3 className="text-lg font-semibold text-gray-900 mb-4">
+									Cooking Instructions
+								</h3>
+
+								{/* check for instruction */}
+								{recipe.analyzedInstructions && recipe.analyzedInstructions.length > 0 ? (
+									<div className="space-y-4">
+
+										{/* map all the steps */}
+										{recipe.analyzedInstructions[0].steps.map((step, index) => (
+											<div key={index} className="flex">
+												<div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4">
+													{step.number}
+												</div>
+												<div className="flex-1">
+													{/* display step text content */}
+													<p className="text-gray-800 leading-relaxed">{step.step}</p>
+
+													{/* display all the ingredients */}
+													{step.ingredients && step.ingredients.length > 0 && (
+														<div className="mt-2 flex flex-wrap gap-1">
+															{step.ingredients.map((ingredient, idx) => (
+																<span key={idx} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
+																	{ingredient.name}
+																</span>
+															))}
+														</div>
+													)}
+												</div>
+											</div>
+										))}
+									</div>
+
+									/* if no step by step instruction, we check for raw instrucitons */
+								) : recipe.instructions ? (
+									<div className="space-y-4">
+										{formatInstructions(recipe.instructions).map((step, index) => (
+											<div key={index} className="flex">
+												<div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4">
+													{index + 1}
+												</div>
+												<p className="flex-1 text-gray-800 leading-relaxed">{step}</p>
+											</div>
+										))}
+									</div>
+								) : (
+									// No instruction 
+									<p className="text-gray-500 italic">No cooking instructions available.</p>
+								)}
+							</div>
+						)}
 
 						{/* Nutrition Tab */}
 
