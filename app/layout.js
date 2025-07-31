@@ -35,8 +35,10 @@ export default function RootLayout({ children }) {
 		<FavoritesProvider>
 			<html lang="en">
 				<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-					<Navbar />
-					{children}
+					<div className="bg-blue-800 dark:text-black">
+						<Navbar />
+						{children}
+					</div>
 				</body>
 			</html>
 		</FavoritesProvider>
