@@ -15,9 +15,13 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 		onToggleFavorite(recipe);
 	};
 
-	// TODO - HANDLE THE MODAL VIEW
-	const handleViewRecipe = () => {};
-
+	// HANDLE THE MODAL VIEW
+	const handleViewRecipe = () => {
+		if (showCookingModal) {
+			setIsModalOpen(true);
+		}
+	};
+	
 	return (
 		<>
 			<div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
