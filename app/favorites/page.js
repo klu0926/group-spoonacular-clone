@@ -106,7 +106,6 @@ export default function FavoritesPage() {
 		}
 	};
 
-
 	return (
 		<div className="page-wrapper">
 			<header className="text-center mb-8">
