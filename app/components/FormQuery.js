@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function FormQuery({ onSearch, loading }) {
-	// TODO - BASE FORM OPTIONS FROM API
+
 	// TODO - WHAT ARE NEEDED, OUT OF SCOPE, ETC...
 	const [formData, setFormData] = useState({
 		query: "",
@@ -64,7 +64,9 @@ export default function FormQuery({ onSearch, loading }) {
 
 	//  HANDLE INPUT FORM CHANGES, NAME/KEY VALUE PAIR
 	const handleInputChange = (e) => {
-		// UTIL FUNCTION TO WORK ON MULTIPLE INPUT FIELDS
+		// GET THE NAME AND VALUE FROM THE INPUT
+		// UPDATE THE STATE WITH THE NEW VALUE
+		// USING THE NAME AS THE KEY
 		const { name, value } = e.target;
 		setFormData((prev) => ({
 			...prev,
@@ -90,7 +92,6 @@ export default function FormQuery({ onSearch, loading }) {
 			searchParams.cuisine = formData.cuisine;
 		}
 
-		// TODO - OTHER FORM OPTIONS BASED ON
 		// INGREDIENTS
 		if (formData.includeIngredients.trim()) {
 			searchParams.includeIngredients = formData.includeIngredients.trim();

@@ -10,7 +10,7 @@ export default function RecipeList({ recipes, favorites, onToggleFavorite, showF
 		return null;
 	}
 
-	// TODO - FAVORITE TOGGLING
+	// FAVORITE TOGGLING
 	const isFavorite = (recipeId) => {
 		return favorites.some((fav) => fav.id === recipeId);
 	};
@@ -34,7 +34,7 @@ export default function RecipeList({ recipes, favorites, onToggleFavorite, showF
 				))}
 			</div>
 
-			{/* TODO - RECIPE COUNT SHOWN / TOTAL FROM API */}
+			{/* RECIPE COUNT SHOWN / TOTAL FROM API */}
 			<div>{recipes.length === 1 ? "1 recipe displayed" : `${recipes.length} recipes displayed`}</div>
 		</div>
 	);
