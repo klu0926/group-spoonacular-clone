@@ -6,7 +6,7 @@ import CookingModal from "./CookingModal";
 import { stripHtmlTags } from "../utils/utils";
 
 export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showFavoriteButton = true, showCookingModal = false }) {
-	// GOING TO NEED A MODAL BOOL
+	
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	// FAVORITE TOGGLE LOGIC
