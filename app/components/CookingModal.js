@@ -323,6 +323,72 @@ export default function CookingModal({ recipe, isOpen, onClose }) {
 						)}
 
 						{/* Summary Tab */}
+						{activeTab === 'summary' && (
+							<div>
+								<h3 className="text-lg font-semibold text-gray-900 mb-4">
+									Recipe Summary
+								</h3>
+
+								{/* summary */}
+								{recipe.summary ? (
+									<div
+										className="prose max-w-none text-gray-800 leading-relaxed"
+										dangerouslySetInnerHTML={{ __html: recipe.summary }}
+									/>
+								) : (
+									<p className="text-gray-500 italic">No summary available.</p>
+								)}
+
+								{/* Additional Info */}
+								{/* Cuisines Types */}
+								<div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+									{recipe.cuisines && recipe.cuisines.length > 0 && (
+										<div>
+											<h4 className="font-medium text-gray-900 mb-2">Cuisines</h4>
+											<div className="flex flex-wrap gap-1">
+												{recipe.cuisines.map((cuisine, index) => (
+													<span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-sm rounded">
+														{cuisine}
+													</span>
+												))}
+											</div>
+										</div>
+									)}
+
+									{/* Dish Types */}
+									{recipe.dishTypes && recipe.dishTypes.length > 0 && (
+										<div>
+											<h4 className="font-medium text-gray-900 mb-2">Dish Types</h4>
+											<div className="flex flex-wrap gap-1">
+												{recipe.dishTypes.map((type, index) => (
+													<span key={index} className="px-2 py-1 bg-green-100 text-green-800 text-sm rounded">
+														{type}
+													</span>
+												))}
+											</div>
+										</div>
+									)}
+								</div>
+
+								{/* Link to the source url */}
+								{recipe.sourceUrl && (
+									<div className="mt-6 pt-4 border-t border-gray-200">
+										<a
+											href={recipe.sourceUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="inline-flex items-center text-blue-600 hover:text-blue-800 underline"
+										>
+											View Original Recipe
+											{/* outside link icon */}
+											<svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+											</svg>
+										</a>
+									</div>
+								)}
+							</div>
+						)}
 
 					</div>
 				</div>
