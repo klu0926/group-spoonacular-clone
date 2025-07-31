@@ -104,16 +104,15 @@ export default function FavoritesPage() {
 		}
 	};
 
-	// TODO - RETURN THE PAGE OF FILTERED RECIPES
+	// WIP - RETURN THE PAGE OF FILTERED RECIPES
 	return (
-		// TODO - GET THE STYLES MATCHING WIREFRAME & NAV BAR & FIRST PAGE
 		<div className="container  min-h-screen mx-auto px-4 py-8 bg-white rounded-lg">
 			<header className="text-center mb-8">
-				<h1 className="text-4xl font-bold text-gray-800 mb-2">Saved Recipes</h1>
+				<h1 className="text-4xl font-bold text-gray-800 mb-2">Favorite Recipes</h1>
 			</header>
 
 			{favorites.length === 0 ? (
-				// TODO - PROPER UX HANDLE IF NO RECIPES FAVORITED
+				// WIP - PROPER UX HANDLE IF NO RECIPES FAVORITED
 				<span>No favorites picked - go pick some!</span>
 			) : (
 				<>

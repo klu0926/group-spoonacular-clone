@@ -65,7 +65,7 @@ export default function QueryPage() {
 
 			// ENFORCE MAX RETURN AND CURRENT OFFSET
 			// NOTE - API DEFAULT IS SUPPOSED TO BE 10, BUT I DON'T TRUST IT
-			const MAX_QUERY_NUMBER = 6;
+			const MAX_QUERY_NUMBER = 8;
 			queryParams.number = MAX_QUERY_NUMBER;
 			queryParams.offset = searchOffset;
 			queryParams.addRecipeInformation = true;
@@ -172,22 +172,18 @@ export default function QueryPage() {
 		}
 	};
 
-	// FINALLY, RETURN THE PAGE
+	// FINALLY, RETURN THE PAGE w/SAME STYLE
 	return (
-		// WRAP IN DIVS FOR LAYOUT
-		// TODO - ALIGN COLOURS AND SPACE AND NAV TO MATCH WIREFRAME
-		<div className="container  min-h-screen mx-auto px-4 py-8 bg-white rounded-lg">
+		<div className="page-wrapper">
 			<header className="text-center mb-8">
 				<h1 className="text-4xl font-bold text-gray-800 mb-2">Query for Recipes</h1>
 			</header>
 
 			{/* WIP - SEARCH FORM COMPONENT */}
-			<div className="bg-white rounded-lg shadow-md p-6 mb-8">
-				<FormQuery
-					onSearch={searchRecipes}
-					loading={loading}
-				/>
-			</div>
+			<FormQuery
+				onSearch={searchRecipes}
+				loading={loading}
+			/>
 
 			{/* WIP - ERROR DISPLAY MESG */}
 			{error && (

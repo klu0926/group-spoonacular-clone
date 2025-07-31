@@ -1,13 +1,13 @@
+// ABOUT PAGE
+// CLARANCE LEUNG
 "use client";
 
 import BioCard from "../components/BioCards";
 
-// ABOUT PAGE STUB
-
 export default function AboutPage() {
-	// TODO - NOTHING DYNAMIC ON ABOUT PAGE...
+	// FINALLY, RETURN THE PAGE w/SAME STYLE
 	return (
-		<div className="container  min-h-screen mx-auto px-4 py-8 bg-white rounded-lg">
+		<div className="page-wrapper">
 			<header className="text-center mb-8">
 				<h1 className="text-4xl font-bold text-gray-800 mb-2">The Team</h1>
 			</header>
