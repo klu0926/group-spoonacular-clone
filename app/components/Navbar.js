@@ -66,7 +66,7 @@ export function BurgerMenu() {
 export default function Navbar() {
 	const pathname = usePathname();
 	return (
-		<div className="fixed top-0 left-0 w-screen  border-b-1 border-black bg-white">
+		<div className="fixed top-0 left-0 w-screen  border-b-1 border-black bg-white z-100">
 			<div className="flex gap-4 pt-2 px-10 items-center justify-between md:justify-start ">
 				<Link
 					href={"/"}
