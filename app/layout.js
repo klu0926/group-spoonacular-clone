@@ -34,9 +34,9 @@ export default function RootLayout({ children }) {
 	return (
 		<FavoritesProvider>
 			<html lang="en">
-				<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-					<div className="bg-blue-800 dark:text-black">
-						<Navbar />
+				<body className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}>
+					<Navbar />
+					<div className="mt-20">
 						{children}
 					</div>
 				</body>
