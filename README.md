@@ -58,7 +58,7 @@ Main page for querying recipes
 * Displays results dynamically
 * Users can add any recipe to their favorites
 
-<img width="770" height="915" alt="image" src="https://github.com/user-attachments/assets/0f54c48b-223c-483e-9da3-6250e7293791" />  
+<img width="1374" height="871" alt="Image" src="https://github.com/user-attachments/assets/aa8c4184-3522-4dce-80d0-6158ecd911a0" />
 
 
 **Favorites**
@@ -67,16 +67,14 @@ Displays the user's favorite recipes
 * Provides query form to filter recipes
 * Allows users to remove recipes
 
-<img width="775" height="618" alt="image" src="https://github.com/user-attachments/assets/cba292c0-11fe-4cf9-a8df-22f749b64f25" />  
-
+<img width="1055" height="711" alt="Image" src="https://github.com/user-attachments/assets/bb09f480-5314-4524-8b61-78c0ea3c4b2c" />
 
 **About**
 Provides information about the developers
 
-<img width="780" height="251" alt="image" src="https://github.com/user-attachments/assets/b7b04897-c74c-4c6c-8305-4a136e793d14" />
+<img width="1053" height="373" alt="Image" src="https://github.com/user-attachments/assets/05173e13-1438-4379-b468-56c772f3bc56" />
 
-<img width="779" height="298" alt="image" src="https://github.com/user-attachments/assets/e9ce0e6d-2c26-4b03-b649-088a5a14706e" />
-
+<img width="1054" height="389" alt="Image" src="https://github.com/user-attachments/assets/a4ae80b2-513c-4d21-9e42-7de85b1e1841" />
 
 # State Management Structure
 This application uses a Context to keep the state of the user's favorite recipes. The FavoritesContext provides global access to a list of favorite recipes, enabling components throughout the app to read, add, remove, search, and analyze favorite items without prop-drilling.
