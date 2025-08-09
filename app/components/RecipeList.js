@@ -1,5 +1,3 @@
-// AUTHORS: Darryl, Jasmine
-
 // RECIPE LIST
 import RecipeView from "./RecipeView";
 

@@ -1,6 +1,5 @@
 // Kuo Yu Lu
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
@@ -8,8 +7,8 @@ import { useState, useRef, useEffect } from "react";
 function NavLink({ href, isActive, children }) {
 	return (
 		<Link
-			className={`cursor-pointer py-1 px-4 rounded-4xl transition
-				${isActive ? "bg-orange-500 text-white hover:bg-oragne-500" : "text-gray-500 hover:bg-orange-200"}`}
+			className={`cursor-pointer py-1 px-4 rounded-full transition
+				${isActive ? "bg-orange-500 text-white hover:bg-oragne-500" : "text-gray-500 hover:bg-gray-200"}`}
 			href={href}
 		>
 			{children}
@@ -17,12 +16,11 @@ function NavLink({ href, isActive, children }) {
 	);
 }
 
-
 function BurgerNavLink({ href, isActive, children }) {
 	return (
 		<Link
-			className={`cursor-pointer py-1 px-4 transition
-				${isActive ? "bg-orange-500 text-white hover:bg-oragne-500" : "text-gray-500 hover:bg-orange-200"}`}
+			className={`cursor-pointer py-1 px-4 transition 
+				${isActive ? "bg-orange-500 text-white hover:bg-oragne-500" : "text-gray-400 hover:bg-gray-200"}`}
 			href={href}
 		>
 			{children}
@@ -66,10 +64,51 @@ export function BurgerMenu() {
 
 			{/* Dropdown menu */}
 			{isOpen && (
-				<div className="absolute right-2 mt-3 flex flex-col gap-2 px-2 py-1 bg-white shadow-md rounded w-40 z-50 text-start border-2 border-orange-500">
-					<BurgerNavLink href="/" isActive={pathname === "/"}>Home</BurgerNavLink>
-					<BurgerNavLink href="/favorites" isActive={pathname === "/favorites"}>Favorites</BurgerNavLink>
-					<BurgerNavLink href="/about" isActive={pathname === "/about"}>About Us</BurgerNavLink>
+				<div className="absolute right-2 mt-3 flex flex-col bg-white shadow-lg rounded w-40 z-50 text-start border-2 border-orange-500">
+					<BurgerNavLink href="/" isActive={pathname === "/"}>
+						<div className="flex gap-2 py-2 ">
+							{/* active */}
+							<img className={pathname === "/" ? "" : "hidden"}
+								width="25" height="18" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/cutlery.png" alt="like--v1" />
+
+							{/* not active */}
+							<img className={pathname === "/" ? "hidden" : ""}
+								width="25" height="18" src="https://img.icons8.com/ios-glyphs/30/A9A9A9/cutlery.png" alt="like--v1" />
+							<span className="font-semibold">Home</span>
+						</div>
+					</BurgerNavLink>
+
+
+					<BurgerNavLink href="/favorites" isActive={pathname === "/favorites"}>
+						<div className="flex gap-2 py-2">
+							{/* active */}
+							<img className={pathname === "/favorites" ? "" : "hidden"}
+								width="25" height="18" src="https://img.icons8.com/material-outlined/30/FFFFFF/filled-like.png"
+								alt="like--v1" />
+
+							{/* not active */}
+							<img className={pathname === "/favorites" ? "hidden" : ""}
+								width="25" height="18" src="https://img.icons8.com/material-outlined/30/A9A9A9/filled-like.png"
+								alt="like--v1" />
+							<span className="font-semibold">Favorites</span>
+						</div>
+					</BurgerNavLink>
+
+
+					<BurgerNavLink href="/about" isActive={pathname === "/about"}>
+						<div className="flex gap-2 py-2 group w-25 items-center">
+							{/* active */}
+							<img className={pathname === "/about" ? "" : "hidden"}
+								width="25" height="18" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/chef-hat.png"
+								alt="like--v1" />
+
+							{/* not active */}
+							<img className={pathname === "/about" ? "hidden" : ""}
+								width="25" height="18" src="https://img.icons8.com/ios-glyphs/30/A9A9A9/chef-hat.png"
+								alt="like--v1" />
+							<span className="font-semibold">About</span>
+						</div>
+					</BurgerNavLink>
 				</div>
 			)}
 		</div>
@@ -89,19 +128,52 @@ export default function Navbar() {
 						href={"/"}
 						isActive={pathname == "/"}
 					>
-						Home
+						<div className="flex gap-2">
+							{/* active */}
+							<img className={pathname === "/" ? "" : "hidden"}
+								width="25" height="18" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/cutlery.png" alt="like--v1" />
+
+							{/* not active */}
+							<img className={pathname === "/" ? "hidden" : ""}
+								width="25" height="18" src="https://img.icons8.com/ios-glyphs/30/A9A9A9/cutlery.png" alt="like--v1" />
+							<span className="font-semibold">Home</span>
+						</div>
 					</NavLink>
 					<NavLink
 						href={"/favorites"}
 						isActive={pathname === "/favorites"}
 					>
-						Favorites
+						<div className="flex gap-2">
+							{/* active */}
+							<img className={pathname === "/favorites" ? "" : "hidden"}
+								width="25" height="18" src="https://img.icons8.com/material-outlined/30/FFFFFF/filled-like.png"
+								alt="like--v1" />
+
+							{/* not active */}
+							<img className={pathname === "/favorites" ? "hidden" : ""}
+								width="25" height="18" src="https://img.icons8.com/material-outlined/30/A9A9A9/filled-like.png"
+								alt="like--v1" />
+							<span className="font-semibold">Favorites</span>
+						</div>
 					</NavLink>
+
+
 					<NavLink
 						href={"/about"}
 						isActive={pathname === "/about"}
 					>
-						About Us
+						<div className="flex gap-2 items-center">
+							{/* active */}
+							<img className={pathname === "/about" ? "" : "hidden"}
+								width="25" height="18" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/chef-hat.png"
+								alt="like--v1" />
+
+							{/* not active */}
+							<img className={pathname === "/about" ? "hidden" : ""}
+								width="25" height="18" src="https://img.icons8.com/ios-glyphs/30/A9A9A9/chef-hat.png"
+								alt="like--v1" />
+							<span className="font-semibold">About</span>
+						</div>
 					</NavLink>
 				</div>
 
