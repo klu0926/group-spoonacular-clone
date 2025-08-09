@@ -172,62 +172,113 @@ export default function QueryPage() {
 		}
 	};
 
-	// FINALLY, RETURN THE PAGE w/SAME STYLE
 	return (
-		<div className="page-wrapper">
-			<header className="text-center mb-8">
-				<h1 className="text-4xl font-bold text-gray-800 mb-2">Query for Recipes</h1>
-			</header>
+		<div className="flex flex-col items-center w-screen min-h-screen p-4">
+			{/* background images */}
+			<div className="relative w-[1800px] bg-red-300 h-0 z-0">
 
-			{/* WIP - SEARCH FORM COMPONENT */}
-			<FormQuery
-				onSearch={searchRecipes}
-				loading={loading}
-			/>
-
-			{/* WIP - ERROR DISPLAY MESG */}
-			{error && (
-				<div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-					<strong>Error:</strong> {error}
+				<div className="absolute top-1 right-10 opacity-5 transform rotate-12">
+					<img width="250" height="250" src="https://img.icons8.com/ios/250/salad--v1.png" alt="salad--v1" />
 				</div>
-			)}
 
-			{/* WIP - RESULTS FROM API WHICH INCLUDES TOTAL ON EVERY RETURN*/}
-			{totalResults > 0 && (
-				<div className="mb-6">
-					<p className="text-gray-600">
-						Found {totalResults} recipes. Showing {recipes.length} results.
-					</p>
+				<div className="absolute top-40 left-0 opacity-5 transform rotate-6">
+					<img width="250" height="250" src="https://img.icons8.com/ios/250/pizza.png" alt="pizza" />
 				</div>
-			)}
 
-			{/* WIP - RECIPE LIST COMPONENT */}
-			<RecipeList
-				recipes={recipes}
-				favorites={favorites}
-				onToggleFavorite={handleToggleFavorite}
-				showFavoriteButton={true}
-			/>
+				<div className="absolute top-150 left-24 opacity-5 transform rotate-6">
+					<img width="250" height="250" src="https://img.icons8.com/ios/250/doughnut.png" alt="doughnut" />
+				</div>
 
-			{/* WIP - LOAD MORE BUTTON */}
-			{hasMore && (
-				<div className="text-center mt-8">
-					<button
-						onClick={loadMoreRecipes}
-						disabled={loading}
-						className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+				<div className="absolute top-170 right-26 opacity-5 transform rotate-190">
+					<img width="250" height="250" src="https://img.icons8.com/ios/250/sandwich.png" alt="sandwich" />
+				</div>
+			</div>
+
+
+			{/* MIDDLE CONTENT */}
+			<div className="min-h-screen w-full flex flex-col items-center">
+
+				{/* WIP - SEARCH FORM COMPONENT */}
+				<FormQuery
+					onSearch={searchRecipes}
+					loading={loading}
+				>
+					<FormQuery.search />
+					<FormQuery.form />
+				</FormQuery>
+
+				{/* WIP - ERROR DISPLAY MESG */}
+				{error && (
+					<div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6 w-screen">
+						<strong>Error:</strong> {error}
+					</div>
+				)}
+
+				{/* WIP - RESULTS FROM API WHICH INCLUDES TOTAL ON EVERY RETURN*/}
+				{totalResults > 0 && (
+					<div className="mb-4 w-full py-1 mt-2 text-center">
+						<p className="text-gray-600">
+							Found {totalResults} recipes. Showing {recipes.length} results.
+						</p>
+					</div>
+				)}
+
+				{/* WIP - RECIPE LIST COMPONENT */}
+				<RecipeList
+					recipes={recipes}
+					favorites={favorites}
+					onToggleFavorite={handleToggleFavorite}
+					showFavoriteButton={true}
+				/>
+
+				{/* WIP - LOAD MORE BUTTON */}
+				{hasMore && (
+					<div className="text-center mt-8">
+						<button
+							onClick={loadMoreRecipes}
+							disabled={loading}
+							className="bg-orange-500 hover:bg-orange-600 disabled:bg-orange-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors cursor-pointer"
+						>
+							{loading ? "Loading..." : "Load More Recipes"}
+						</button>
+					</div>
+				)}
+
+				{/* WIP - NO RESULTS */}
+				{!loading && recipes.length === 0 && currentQuery && (
+					<div className="text-center py-12">
+						<p className="text-gray-500 text-lg">No recipes found. Try adjusting your search criteria.</p>
+					</div>
+				)}
+			</div>
+
+			{/* footer*/}
+			<div className="flex flex-col justify-center items-center py-5 w-full mt-5 text-center">
+				<p className="text-gray-500 text-sm">
+					Recipe data provided by{" "}
+					<a
+						href="https://spoonacular.com/food-api"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-orange-600 hover:underline"
 					>
-						{loading ? "Loading..." : "Load More Recipes"}
-					</button>
-				</div>
-			)}
+						Spoonacular API
+					</a>
+				</p>
 
-			{/* WIP - NO RESULTS */}
-			{!loading && recipes.length === 0 && currentQuery && (
-				<div className="text-center py-12">
-					<p className="text-gray-500 text-lg">No recipes found. Try adjusting your search criteria.</p>
-				</div>
-			)}
+				<p className="text-gray-500 text-sm">
+					View the project on{" "}
+					<a
+						href="https://github.com/klu0926/group-spoonacular-clone"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-orange-600 hover:underline"
+					>
+						GitHub
+					</a>
+					.
+				</p>
+			</div>
 		</div>
 	);
 }

@@ -6,7 +6,7 @@ import CookingModal from "./CookingModal";
 import { stripHtmlTags } from "../utils/utils";
 
 export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showFavoriteButton = true, showCookingModal = false }) {
-	
+
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	// FAVORITE TOGGLE LOGIC
@@ -29,7 +29,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 		return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
 	};
 
-		const getDietBadges = () => {
+	const getDietBadges = () => {
 		const badges = [];
 		if (recipe.vegetarian) badges.push("Vegetarian");
 		if (recipe.vegan) badges.push("Vegan");
@@ -57,7 +57,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 					{showFavoriteButton && (
 						<button
 							onClick={handleFavoriteClick}
-							className={`absolute top-3 right-3 p-2 rounded-full transition-colors ${isFavorite ? "bg-red-500 text-white hover:bg-red-600" : "bg-white text-gray-400 hover:text-red-500 hover:bg-gray-50"}`}
+							className={`absolute top-3 right-3 p-2 rounded-full transition-colors ${isFavorite ? "bg-orange-500 text-white hover:bg-orange-600" : "bg-white text-gray-400 hover:text-orange-500 hover:bg-gray-50"}`}
 							aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
 						>
 							<svg
@@ -90,13 +90,13 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 							{getDietBadges().map((badge, index) => (
 								<span
 									key={index}
-									className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full"
+									className="px-2 py-1 bg-orange-100 text-orange-500 text-xs rounded-full"
 								>
 									{badge}
 								</span>
 							))}
 						</div>
-					)}					
+					)}
 
 					{/* Recipe STATS */}
 					<div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-4">
@@ -122,7 +122,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 						{showCookingModal && (
 							<button
 								onClick={handleViewRecipe}
-								className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors"
+								className="flex-1 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors"
 							>
 								View Recipe
 							</button>
@@ -142,19 +142,19 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 
 					{/* Cuisines */}
 					{recipe.cuisines && recipe.cuisines.length > 0 && (
-					<div className="mt-3 pt-3 border-t border-gray-100">
-						<div className="flex flex-wrap gap-1">
-							{recipe.cuisines.slice(0, 3).map((cuisine, index) => (
-								<span
-									key={index}
-									className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
-								>
-									{cuisine}
-								</span>
-							))}
-							{recipe.cuisines.length > 3 && <span className="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded">+{recipe.cuisines.length - 3} more</span>}
+						<div className="mt-3 pt-3 border-t border-gray-100">
+							<div className="flex flex-wrap gap-1">
+								{recipe.cuisines.slice(0, 3).map((cuisine, index) => (
+									<span
+										key={index}
+										className="px-2 py-1 bg-orange-400 text-white text-xs rounded"
+									>
+										{cuisine}
+									</span>
+								))}
+								{recipe.cuisines.length > 3 && <span className="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded">+{recipe.cuisines.length - 3} more</span>}
+							</div>
 						</div>
-					</div>
 					)}
 				</div>
 			</div>
