@@ -104,9 +104,6 @@ export default function QueryPage() {
 				},
 			});
 
-			// DUMP THE HEADERS
-			console.log(response.headers);
-
 			// TIME
 			var endTime = Date.now();
 			var duration = endTime - startTime;
@@ -217,7 +214,7 @@ export default function QueryPage() {
 				{/* WIP - RESULTS FROM API WHICH INCLUDES TOTAL ON EVERY RETURN*/}
 				{totalResults > 0 && (
 					<div className="mb-4 w-full py-1 mt-2 text-center">
-						<p className="text-gray-600">
+						<p className="text-gray-400">
 							Found {totalResults} recipes. Showing {recipes.length} results.
 						</p>
 					</div>

@@ -11,6 +11,8 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 
 	// FAVORITE TOGGLE LOGIC
 	const handleFavoriteClick = (e) => {
+		e.preventDefault();   // stop the anchor navigation
+		e.stopPropagation();
 		onToggleFavorite(recipe);
 	};
 
@@ -41,23 +43,30 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 
 	return (
 		<>
-			<div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-				{/* Recipe Image  */}
-				<div className="relative">
-					<img
-						src={recipe.image || "/api/placeholder/300/200"}
-						alt={recipe.title}
-						className="w-full h-48 object-cover"
-						onError={(e) => {
-							e.target.src = "/api/placeholder/300/200";
-						}}
-					/>
+			<a
+				href={recipe.sourceUrl}
+				target="_blank"
+				className="md:container md:shadow-md md:rounded-2xl cursor-default"
+				onClick={(e) => {
+					// prevent a href working on monitor
+					if (window.innerWidth >= 768) {
+						e.preventDefault(); // disable navigation on md+
+					}
+				}}
+			>
+
+				<div className="
+						h-full
+						grid grid-cols-[2fr_3fr] gap-2
+						md:grid-cols-1 md:grid-rows-[200px_1fr] md:gap-0  md:pb-4
+						relative rounded-lg overflow-hidden md:hover:shadow-lg transition-shadow duration-300
+					">
 
 					{/* FAVORITE TOGGLE BUTTON USING STATE*/}
 					{showFavoriteButton && (
 						<button
 							onClick={handleFavoriteClick}
-							className={`absolute top-3 right-3 p-2 rounded-full transition-colors ${isFavorite ? "bg-orange-500 text-white hover:bg-orange-600" : "bg-white text-gray-400 hover:text-orange-500 hover:bg-gray-50"}`}
+							className={`absolute z-15 top-4 left-2 p-1 shadow-md rounded-full transition-colors ${isFavorite ? "bg-orange-500 text-white hover:bg-orange-600" : "bg-white text-gray-400 hover:text-orange-500 hover:bg-gray-50"}`}
 							aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
 						>
 							<svg
@@ -74,99 +83,114 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 						</button>
 					)}
 
-					{/* Ready Time Badge */}
-					{recipe.readyInMinutes && <div className="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-sm">⏱️ {formatTime(recipe.readyInMinutes)}</div>}
+					{/* Recipe Image  */}
+					<div className="relative py-2 md:py-0 overflow-hidden">
+						<img
+							src={recipe.image || "/api/placeholder/300/200"}
+							alt={recipe.title}
+							className="object-cover w-full h-full rounded-md md:rounded-none"
+							onError={(e) => {
+								e.target.src = "/api/placeholder/300/200";
+							}}
+						/>
+					</div>
 
-				</div>
-
-				{/* RECIPE CONTENT */}
-				<div className="p-4">
-					{/* Title */}
-					<h3 className="font-semibold text-lg text-gray-800 mb-2 line-clamp-2">{recipe.title}</h3>
-
-					{/* Diet Badges */}
-					{getDietBadges().length > 0 && (
-						<div className="flex flex-wrap gap-1 mb-3">
-							{getDietBadges().map((badge, index) => (
-								<span
-									key={index}
-									className="px-2 py-1 bg-orange-100 text-orange-500 text-xs rounded-full"
-								>
-									{badge}
-								</span>
-							))}
+					{/* RECIPE CONTENT */}
+					<div className="px-2 md:px-4 h-full">
+						{/* Title */}
+						<div className="flex items-center">
+							<h3 className="font-semibold text-sm md:text-lg text-gray-800 mt-2 mb-1 md:mt-2 md:mb-2">{recipe.title}</h3>
 						</div>
-					)}
 
-					{/* Recipe STATS */}
-					<div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-4">
-						{recipe.servings && (
-							<div className="flex items-center">
-								<span className="mr-1">👥</span>
-								<span>{recipe.servings} servings</span>
-							</div>
-						)}
-						{recipe.healthScore && (
-							<div className="flex items-center">
-								<span className="mr-1">💚</span>
-								<span>{recipe.healthScore}% healthy</span>
-							</div>
-						)}
-					</div>
-
-					{/* RECIPE SUMMARY */}
-					{recipe.summary && <p className="text-gray-600 text-sm line-clamp-3 mb-4">{stripHtmlTags(recipe.summary)}</p>}
-
-					{/* ACTION BUTTONS */}
-					<div className="flex gap-2">
-						{showCookingModal && (
-							<button
-								onClick={handleViewRecipe}
-								className="flex-1 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors"
-							>
-								View Recipe
-							</button>
-						)}
-
-						{recipe.sourceUrl && (
-							<a
-								href={recipe.sourceUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-4 rounded-md text-sm font-medium text-center transition-colors"
-							>
-								Original Recipe
-							</a>
-						)}
-					</div>
-
-					{/* Cuisines */}
-					{recipe.cuisines && recipe.cuisines.length > 0 && (
-						<div className="mt-3 pt-3 border-t border-gray-100">
-							<div className="flex flex-wrap gap-1">
-								{recipe.cuisines.slice(0, 3).map((cuisine, index) => (
+						{/* Diet Badges */}
+						{getDietBadges().length > 0 && (
+							<div className="flex flex-wrap gap-1 mb-3">
+								{getDietBadges().map((badge, index) => (
 									<span
 										key={index}
-										className="px-2 py-1 bg-orange-400 text-white text-xs rounded"
+										className="px-2 py-1 bg-orange-100 text-orange-500 text-xs rounded-full"
 									>
-										{cuisine}
+										{badge}
 									</span>
 								))}
-								{recipe.cuisines.length > 3 && <span className="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded">+{recipe.cuisines.length - 3} more</span>}
 							</div>
-						</div>
-					)}
-				</div>
-			</div>
+						)}
 
-			{/* COOKING MODAL COMPONENT */}
-			{isModalOpen && (
-				<CookingModal
-					recipe={recipe}
-					isOpen={isModalOpen}
-					onClose={() => setIsModalOpen(false)}
-				/>
-			)}
+						{/* Recipe STATS */}
+						<div className="flex gap-4 justify-start items-center text-sm mt-1 mb-2 border-b-1 border-b-gray-200">
+							{/* Ready Time Badge */}
+							{recipe.readyInMinutes && <div className="flex items-center">
+								<span className="mr-1">
+									<img width="20" height="20" src="https://img.icons8.com/material-outlined/20/clock--v1.png" alt="clock--v1" />
+								</span>
+								<span>{formatTime(recipe.readyInMinutes) + "s"}</span>
+							</div>}
+
+
+							{recipe.servings && (
+								<div className="flex items-center">
+									<span className="mr-1">
+										<img width="28" height="28" src="https://img.icons8.com/windows/30/conference-call.png" alt="conference-call" />
+									</span>
+									<span>{recipe.servings}</span>
+								</div>
+							)}
+
+
+							{recipe.healthScore && (
+								<div className="flex items-center">
+									<span className="mr-1">
+										<img width="20" height="20" src="https://img.icons8.com/material-outlined/20/heart-health.png" alt="heart-health" />
+									</span>
+									<span>{recipe.healthScore}%</span>
+								</div>
+							)}
+						</div>
+
+						{/* RECIPE SUMMARY */}
+						{recipe.summary && <p className="text-gray-600 text-sm line-clamp-3 mb-4">{stripHtmlTags(recipe.summary)}</p>}
+
+						{/* Original Recipe link */}
+						<button
+							className="hidden w-full md:flex justify-center py-2 bg-gray-200 hover:bg-gray-300 text-gray-600 text-sm shadow-md rounded-md transition cursor-pointer my-2"
+							onClick={() => {
+								// open new tab to recipe source url
+								if (recipe.sourceUrl) {
+									window.open(recipe.sourceUrl, "_blank", "noopener,noreferrer");
+								}
+							}}
+						>
+							Original Recipe
+						</button>
+
+						{/* Cuisines */}
+						{recipe.cuisines && recipe.cuisines.length > 0 && (
+							<div className="hidden mt-3 pt-3 border-t border-gray-100">
+								<div className="flex flex-wrap gap-1">
+									{recipe.cuisines.slice(0, 3).map((cuisine, index) => (
+										<span
+											key={index}
+											className="px-2 py-1 bg-orange-400 text-white text-xs rounded"
+										>
+											{cuisine}
+										</span>
+									))}
+									{recipe.cuisines.length > 3 && <span className="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded">+{recipe.cuisines.length - 3} more</span>}
+								</div>
+							</div>
+						)}
+					</div>
+				</div>
+
+				{/* COOKING MODAL COMPONENT */}
+				{isModalOpen && (
+					<CookingModal
+						recipe={recipe}
+						isOpen={isModalOpen}
+						onClose={() => setIsModalOpen(false)}
+					/>
+				)}
+			</a>
 		</>
 	);
 }

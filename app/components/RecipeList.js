@@ -18,7 +18,7 @@ export default function RecipeList({ recipes, favorites, onToggleFavorite, showF
 	return (
 		<div className="recipe-list max-w-6xl z-10">
 			{/* NOTE - USE GRID LAYOUT FOR BEST/EASIEST */}
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+			<div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-5">
 				{recipes.map((recipe) => (
 					// PASS RECIPE DATA TO COMPONENT TO DISPLAY
 					// INCLUDE CALLBACKS / HANDLERS TO UPDATE FAVORITE STATE
