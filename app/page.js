@@ -174,11 +174,11 @@ export default function QueryPage() {
 			{/* background images */}
 			<div className="relative w-[1800px] bg-red-300 h-0 z-0">
 
-				<div className="absolute top-1 right-10 opacity-5 transform rotate-12">
+				<div className="absolute top-[-40px] right-50 opacity-5 transform rotate-12">
 					<img width="250" height="250" src="https://img.icons8.com/ios/250/salad--v1.png" alt="salad--v1" />
 				</div>
 
-				<div className="absolute top-40 left-0 opacity-5 transform rotate-6">
+				<div className="absolute top-40 left-50 opacity-5 transform rotate-260">
 					<img width="250" height="250" src="https://img.icons8.com/ios/250/pizza.png" alt="pizza" />
 				</div>
 
@@ -186,7 +186,7 @@ export default function QueryPage() {
 					<img width="250" height="250" src="https://img.icons8.com/ios/250/doughnut.png" alt="doughnut" />
 				</div>
 
-				<div className="absolute top-170 right-26 opacity-5 transform rotate-190">
+				<div className="absolute top-170 right-56 opacity-5 transform rotate-170">
 					<img width="250" height="250" src="https://img.icons8.com/ios/250/sandwich.png" alt="sandwich" />
 				</div>
 			</div>
