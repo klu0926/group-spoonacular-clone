@@ -3,7 +3,7 @@ import { useState } from "react";
 import CookingModal from "./CookingModal";
 import { stripHtmlTags } from "../utils/utils";
 
-export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showFavoriteButton = true, showCookingModal = false }) {
+export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showFavoriteButton = true, showCookingModal = true }) {
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
 

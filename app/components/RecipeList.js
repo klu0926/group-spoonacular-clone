@@ -2,7 +2,7 @@
 import RecipeView from "./RecipeView";
 
 // RECIPES FROM QUERY WITH STUB LOGIC
-export default function RecipeList({ recipes, favorites, onToggleFavorite, showFavoriteButton = true, showCookingModal = false }) {
+export default function RecipeList({ recipes, favorites, onToggleFavorite, showFavoriteButton = true, showCookingModal = true }) {
 	// EARLY RETURN IF NO RECIPES
 	if (!recipes || recipes.length === 0) {
 		return null;

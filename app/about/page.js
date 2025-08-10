@@ -45,7 +45,7 @@ export default function AboutPage() {
 					name={"Jasmine Sanders"}
 					image={"https://avatars.githubusercontent.com/u/172424810"}
 					bio={"Running on caffeine, chaos, and questionable decisions."}
-					link={"https://github.com/Jaysandja3y"}
+					link={"https://github.com/Jaysandjay"}
 					job={"Jas-mash Potato"}
 				/>
 			</div >
