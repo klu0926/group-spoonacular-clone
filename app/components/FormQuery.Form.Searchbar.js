@@ -24,8 +24,6 @@ export default function FormQueryFormSearchbar() {
         className="space-y-6"
       >
         <div className="flex flex-col gap-5 items-center">
-          {/* FORM INPUTS */}
-          <h1 className="font-bold text-4xl text-orange-500">FIND RECIPES</h1>
 
           <div className="relative w-full">
             <input

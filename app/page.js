@@ -172,62 +172,62 @@ export default function QueryPage() {
 	return (
 		<div className="page-wrapper">
 
-			{/* MIDDLE CONTENT */}
-			<div className="min-h-screen w-full flex flex-col items-center">
+			<header className="text-center mb-4">
+				<h1 className="text-2xl md:text-4xl font-bold text-orange-500 my-2">FIND RECIPES</h1>
+			</header>
 
-				{/* WIP - SEARCH FORM COMPONENT */}
-				<FormQuery
-					onSearch={searchRecipes}
-					loading={loading}
-				>
-					<FormQuery.search />
-					<FormQuery.form />
-				</FormQuery>
+			{/* WIP - SEARCH FORM COMPONENT */}
+			<FormQuery
+				onSearch={searchRecipes}
+				loading={loading}
+			>
+				<FormQuery.search />
+				<FormQuery.form />
+			</FormQuery>
 
-				{/* WIP - ERROR DISPLAY MESG */}
-				{error && (
-					<div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6 w-screen">
-						<strong>Error:</strong> {error}
-					</div>
-				)}
+			{/* WIP - ERROR DISPLAY MESG */}
+			{error && (
+				<div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6 w-screen">
+					<strong>Error:</strong> {error}
+				</div>
+			)}
 
-				{/* WIP - RESULTS FROM API WHICH INCLUDES TOTAL ON EVERY RETURN*/}
-				{totalResults > 0 && (
-					<div className="mb-4 w-full py-1 mt-2 text-center">
-						<p className="text-gray-400">
-							Found {totalResults} recipes. Showing {recipes.length} results.
-						</p>
-					</div>
-				)}
+			{/* WIP - RESULTS FROM API WHICH INCLUDES TOTAL ON EVERY RETURN*/}
+			{totalResults > 0 && (
+				<div className="mb-4 w-full py-1 mt-2 text-center">
+					<p className="text-gray-400">
+						Found {totalResults} recipes. Showing {recipes.length} results.
+					</p>
+				</div>
+			)}
 
-				{/* WIP - RECIPE LIST COMPONENT */}
-				<RecipeList
-					recipes={recipes}
-					favorites={favorites}
-					onToggleFavorite={handleToggleFavorite}
-					showFavoriteButton={true}
-				/>
+			{/* WIP - RECIPE LIST COMPONENT */}
+			<RecipeList
+				recipes={recipes}
+				favorites={favorites}
+				onToggleFavorite={handleToggleFavorite}
+				showFavoriteButton={true}
+			/>
 
-				{/* WIP - LOAD MORE BUTTON */}
-				{hasMore && (
-					<div className="text-center mt-8">
-						<button
-							onClick={loadMoreRecipes}
-							disabled={loading}
-							className="bg-orange-500 hover:bg-orange-600 disabled:bg-orange-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors cursor-pointer"
-						>
-							{loading ? "Loading..." : "Load More Recipes"}
-						</button>
-					</div>
-				)}
+			{/* WIP - LOAD MORE BUTTON */}
+			{hasMore && (
+				<div className="text-center mt-8">
+					<button
+						onClick={loadMoreRecipes}
+						disabled={loading}
+						className="bg-orange-500 hover:bg-orange-600 disabled:bg-orange-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors cursor-pointer"
+					>
+						{loading ? "Loading..." : "Load More Recipes"}
+					</button>
+				</div>
+			)}
 
-				{/* WIP - NO RESULTS */}
-				{!loading && recipes.length === 0 && currentQuery && (
-					<div className="text-center py-12">
-						<p className="text-gray-500 text-lg">No recipes found. Try adjusting your search criteria.</p>
-					</div>
-				)}
-			</div>
-		</div>
+			{/* WIP - NO RESULTS */}
+			{!loading && recipes.length === 0 && currentQuery && (
+				<div className="text-center py-12">
+					<p className="text-gray-500 text-lg">No recipes found. Try adjusting your search criteria.</p>
+				</div>
+			)}
+		</div >
 	);
 }

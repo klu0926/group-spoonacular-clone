@@ -9,7 +9,7 @@ export default function AboutPage() {
 	return (
 		<div className="page-wrapper">
 			<header className="text-center mb-8">
-				<h1 className="text-4xl font-bold text-orange-500 mb-2">THE COOKS</h1>
+				<h1 className="text-2xl md:text-4xl font-bold text-orange-500 my-2">THE COOKS</h1>
 			</header>
 			<div className="grid grid-cols-1 md:flex gap-10 flex-wrap items-center justify-center max-w-3xl">
 				<BioCard

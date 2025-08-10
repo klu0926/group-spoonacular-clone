@@ -109,7 +109,7 @@ export default function FavoritesPage() {
 	return (
 		<div className="page-wrapper">
 			<header className="text-center mb-4">
-				<h1 className="text-4xl font-bold text-orange-500 my-2">SAVED RECIPES</h1>
+				<h1 className="text-2xl md:text-4xl font-bold text-orange-500 my-2">SAVED RECIPES</h1>
 				{favorites.length > 0 && (
 					<div className="mt-4 flex justify-center items-center gap-4">
 						<span className="text-sm text-gray-500">
