@@ -33,8 +33,8 @@ export default function FavoritesPage() {
 
 		// Apply cuisine filter
 		if (filters.cuisine && filters.cuisine !== "all") {
-			filtered = filtered.filter((recipe) => 
-				recipe.cuisines && recipe.cuisines.some((cuisine) => 
+			filtered = filtered.filter((recipe) =>
+				recipe.cuisines && recipe.cuisines.some((cuisine) =>
 					cuisine.toLowerCase().includes(filters.cuisine.toLowerCase())
 				)
 			);
@@ -42,9 +42,9 @@ export default function FavoritesPage() {
 
 		// Apply diet filters
 		if (filters.diets && filters.diets.length > 0) {
-			filtered = filtered.filter((recipe) => 
-				recipe.diets && filters.diets.every((diet) => 
-					recipe.diets.some((recipeDiet) => 
+			filtered = filtered.filter((recipe) =>
+				recipe.diets && filters.diets.every((diet) =>
+					recipe.diets.some((recipeDiet) =>
 						recipeDiet.toLowerCase().includes(diet.toLowerCase())
 					)
 				)
@@ -53,7 +53,7 @@ export default function FavoritesPage() {
 
 		// Apply ready time filter
 		if (filters.maxReadyTime) {
-			filtered = filtered.filter((recipe) => 
+			filtered = filtered.filter((recipe) =>
 				recipe.readyInMinutes <= filters.maxReadyTime
 			);
 		}
@@ -65,9 +65,9 @@ export default function FavoritesPage() {
 				.split(",")
 				.map((term) => term.trim());
 
-			filtered = filtered.filter((recipe) => 
-				recipe.extendedIngredients && searchTerms.some((term) => 
-					recipe.extendedIngredients.some((ingredient) => 
+			filtered = filtered.filter((recipe) =>
+				recipe.extendedIngredients && searchTerms.some((term) =>
+					recipe.extendedIngredients.some((ingredient) =>
 						ingredient.name.toLowerCase().includes(term)
 					)
 				)
@@ -108,44 +108,42 @@ export default function FavoritesPage() {
 
 	return (
 		<div className="page-wrapper">
-			<header className="text-center mb-8">
-				<h1 className="text-4xl font-bold text-gray-800 mb-2">Saved Recipes</h1>
-				<p className="text-gray-600">Your saved recipes, ready for cooking</p>
+			<header className="text-center mb-4">
+				<h1 className="text-4xl font-bold text-orange-500 my-2">SAVED RECIPES</h1>
 				{favorites.length > 0 && (
 					<div className="mt-4 flex justify-center items-center gap-4">
 						<span className="text-sm text-gray-500">
-						{favorites.length} recipe{favorites.length !== 1 ? 's' : ''} saved
+							{favorites.length} recipe{favorites.length !== 1 ? 's' : ''} saved
 						</span>
 						<button
-						onClick={clearAllFavorites}
-						className="text-sm text-red-600 hover:text-red-800 underline"
+							onClick={clearAllFavorites}
+							className="text-sm text-red-600 hover:text-red-800 underline"
 						>
-						Clear All
+							Clear All
 						</button>
 					</div>
-					)}
+				)}
 			</header>
 
+			{/* no favorties */}
 			{favorites.length === 0 ? (
 				<div className="text-center py-16">
 					<div className="text-6xl mb-4">🍽️</div>
-					<h2 className="text-2xl font-semibold text-gray-700 mb-2">
-					No Favorites Yet
+					<h2 className="text-2xl font-semibold text-orange-500 mb-2">
+						No Favorites Yet
 					</h2>
-					<p className="text-gray-500 mb-6">
-					Start exploring recipes and save your favorites to see them here!
-					</p>
+
 					<Link
-					href="/"
-					className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+						href="/"
+						className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition hover:scale-95"
 					>
-					Discover Recipes
+						Discover recipes!
 					</Link>
 				</div>
 			) : (
 				<>
 					{/* FAVORITE FILTER FORM STUB w/PROPS */}
-					<div className="form-style">
+					<div className="w-full flex justify-center max-w-2xl">
 						<FormFavorites
 							onFilter={handleFilter}
 							totalRecipes={favorites.length}
@@ -155,19 +153,16 @@ export default function FavoritesPage() {
 
 					{/* Results Summary */}
 					<div className="mb-6 flex justify-between items-center">
-						<p className="text-gray-600">
-							Showing {filteredRecipes.length} of {favorites.length} favorite recipes
-						</p>
 						{/* Clear filter button */}
 						{Object.keys(activeFilters).length > 0 && (
 							<button
-							onClick={() => {
-								setActiveFilters({});
-								setFilteredRecipes(favorites);
-							}}
-							className="text-sm text-blue-600 hover:text-blue-800 underline"
+								onClick={() => {
+									setActiveFilters({});
+									setFilteredRecipes(favorites);
+								}}
+								className="text-sm text-blue-600 hover:text-blue-800 underline"
 							>
-							Clear Filters
+								Clear Filters
 							</button>
 						)}
 					</div>
@@ -185,7 +180,7 @@ export default function FavoritesPage() {
 					{filteredRecipes.length === 0 && favorites.length > 0 && (
 						<div className="text-center py-12">
 							<p className="text-gray-500 text-lg">
-							No recipes match your current filters. Try adjusting your criteria.
+								No recipes match your current filters. Try adjusting your criteria.
 							</p>
 						</div>
 					)}

@@ -22,7 +22,7 @@ export default function FormQueryForm() {
       className="w-full mt-5 py-2 text-center flex items-center justify-center text-orange-500 bg-orange-100 rounded-md cursor-pointer"
       onClick={() => setShowMoreForm(true)}
     >
-      More options
+      Show options
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -277,7 +277,7 @@ export default function FormQueryForm() {
           <button
             type="button"
             onClick={handleReset}
-            className="px-6 py-3 bg-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-400 transition cursor-pointer hover:scale-95"
+            className="px-6 py-3 bg-gray-200 text-gray-500 font-semibold rounded-lg hover:bg-gray-300 transition cursor-pointer hover:scale-95"
           >
             Reset
           </button>

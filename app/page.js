@@ -170,27 +170,7 @@ export default function QueryPage() {
 	};
 
 	return (
-		<div className="flex flex-col items-center w-screen min-h-screen p-4">
-			{/* background images */}
-			<div className="relative w-[1800px] bg-red-300 h-0 z-0">
-
-				<div className="absolute top-[-40px] right-50 opacity-5 transform rotate-12">
-					<img width="250" height="250" src="https://img.icons8.com/ios/250/salad--v1.png" alt="salad--v1" />
-				</div>
-
-				<div className="absolute top-40 left-50 opacity-5 transform rotate-260">
-					<img width="250" height="250" src="https://img.icons8.com/ios/250/pizza.png" alt="pizza" />
-				</div>
-
-				<div className="absolute top-150 left-24 opacity-5 transform rotate-6">
-					<img width="250" height="250" src="https://img.icons8.com/ios/250/doughnut.png" alt="doughnut" />
-				</div>
-
-				<div className="absolute top-170 right-56 opacity-5 transform rotate-170">
-					<img width="250" height="250" src="https://img.icons8.com/ios/250/sandwich.png" alt="sandwich" />
-				</div>
-			</div>
-
+		<div className="page-wrapper">
 
 			{/* MIDDLE CONTENT */}
 			<div className="min-h-screen w-full flex flex-col items-center">
@@ -247,34 +227,6 @@ export default function QueryPage() {
 						<p className="text-gray-500 text-lg">No recipes found. Try adjusting your search criteria.</p>
 					</div>
 				)}
-			</div>
-
-			{/* footer*/}
-			<div className="flex flex-col justify-center items-center py-5 w-full mt-5 text-center">
-				<p className="text-gray-500 text-sm">
-					Recipe data provided by{" "}
-					<a
-						href="https://spoonacular.com/food-api"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="text-orange-600 hover:underline"
-					>
-						Spoonacular API
-					</a>
-				</p>
-
-				<p className="text-gray-500 text-sm">
-					View the project on{" "}
-					<a
-						href="https://github.com/klu0926/group-spoonacular-clone"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="text-orange-600 hover:underline"
-					>
-						GitHub
-					</a>
-					.
-				</p>
 			</div>
 		</div>
 	);

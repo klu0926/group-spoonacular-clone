@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
+import { useFavorites } from "../contexts/FavoritesContext";
+
 
 function NavLink({ href, isActive, children }) {
 	return (
@@ -29,6 +31,7 @@ function BurgerNavLink({ href, isActive, children }) {
 }
 
 export function BurgerMenu() {
+	const { favorites, removeFromFavorites } = useFavorites();
 	const [isOpen, setIsOpen] = useState(false);
 	const pathname = usePathname();
 	const burgerRef = useRef(null)
@@ -55,9 +58,9 @@ export function BurgerMenu() {
 
 
 	return (
-		<div ref={burgerRef} className="md:hidden absolute justify-center items-center cursor-pointer hover:bg-gray-100 rounded-md w-12 h-12 text-center top-0 right-6 text-orange-600">
+		<div ref={burgerRef} className="md:hidden absolute justify-center items-center cursor-pointer bg-orange-500 hover:bg-orange-600 rounded-md w-10 h-10 text-center top-0 right-6 text-orange-50">
 			{/* Burger button */}
-			<button onClick={() => setIsOpen(!isOpen)} className="text-4xl cursor-pointer">
+			<button onClick={() => setIsOpen(!isOpen)} className="text-3xl cursor-pointer">
 				{/* Unicode character for ☰ */}
 				&#9776;
 			</button>
@@ -90,7 +93,7 @@ export function BurgerMenu() {
 							<img className={pathname === "/favorites" ? "hidden" : ""}
 								width="25" height="18" src="https://img.icons8.com/material-outlined/30/A9A9A9/filled-like.png"
 								alt="like--v1" />
-							<span className="font-semibold">Favorites</span>
+							<span className="font-semibold text-sm">Favorites</span>
 						</div>
 					</BurgerNavLink>
 
@@ -117,7 +120,9 @@ export function BurgerMenu() {
 
 
 export default function Navbar() {
+	const { favorites, removeFromFavorites } = useFavorites();
 	const pathname = usePathname();
+
 	return (
 		<div className="absolute md:relative top-0 left-0 w-screen z-100 mt-4 mb-5">
 			<div className="flex gap-4 pt-2 px-10 items-center justify-between md:justify-start ">
@@ -139,6 +144,7 @@ export default function Navbar() {
 							<span className="font-semibold">Home</span>
 						</div>
 					</NavLink>
+
 					<NavLink
 						href={"/favorites"}
 						isActive={pathname === "/favorites"}
@@ -153,7 +159,7 @@ export default function Navbar() {
 							<img className={pathname === "/favorites" ? "hidden" : ""}
 								width="25" height="18" src="https://img.icons8.com/material-outlined/30/A9A9A9/filled-like.png"
 								alt="like--v1" />
-							<span className="font-semibold">Favorites</span>
+							<span className="font-semibold">Favorites ({favorites.length})</span>
 						</div>
 					</NavLink>
 
