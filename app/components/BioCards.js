@@ -3,33 +3,26 @@
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
 
-export default function BioCard({ name, image, bio, link, job = 'COOK' }) {
-    const [isFront, setIsFront] = useState(true);   // Track which side is showing
-    const [initHover, setInitHover] = useState(false);
+export default function BioCard({ name, image, bio, link, job = "COOK" }) {
+    const [flipped, setFlipped] = useState(false);
 
+    // add -wbkit and will-change:transform allow fliping to work on safari
     const CARD_BASE =
-        "absolute inset-0 rounded-xl shadow-lg p-4 flex flex-col items-center justify-center w-full h-full";
+        "absolute inset-0 rounded-xl shadow-lg p-4 flex flex-col items-center justify-center [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [will-change:transform]";
 
     return (
         <div
-            className="cursor-pointer group [perspective:1000px] w-[220px] h-[300px] relative"
-            onClick={() => {
-                setIsFront(prev => !prev); // toggle between front/back
-                setInitHover(false);
-            }}
-            onMouseEnter={() => {
-                setInitHover(true);
-            }}
-            onMouseLeave={() => {
-                setInitHover(false);
-            }}
+            className="cursor-pointer group [perspective:1000px] w-[220px] h-[300px]"
+            onClick={() => setFlipped((p) => !p)}
         >
-            {isFront ? (
-                // FRONT
-                <div
-                    className={`${CARD_BASE} justify-center bg-orange-100 border-3 border-orange-400 transition-transform duration-500 ${initHover ? "hover:[transform:rotateY(25deg)]" : ""
-                        }`}
-                >
+            {/* 3D wrapper */}
+            <div
+                className={`relative w-full h-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d]
+          ${flipped ? "[transform:rotateY(180deg)]" : "group-hover:[transform:rotateY(15deg)]"}
+        `}
+            >
+                {/* FRONT */}
+                <div className={`${CARD_BASE} justify-center bg-orange-100 border-[3px] border-orange-400`}>
                     {/* hat */}
                     <div className="absolute top-4 z-10">
                         <img
@@ -41,11 +34,11 @@ export default function BioCard({ name, image, bio, link, job = 'COOK' }) {
                     </div>
 
                     {/* avatar */}
-                    <div className="related rounded-full border-4 border-orange-400 w-[90px] h-[90px] overflow-hidden flex-shrink-0 z-15 ">
+                    <div className="rounded-full border-4 border-orange-400 w-[90px] h-[90px] overflow-hidden flex-shrink-0 z-15">
                         <img
                             src={image || ""}
                             alt={`${name} Avatar`}
-                            className="w-full h-full rounded-full object-cover scale-135"
+                            className="w-full h-full rounded-full object-cover scale-135 "
                         />
                     </div>
 
@@ -53,19 +46,16 @@ export default function BioCard({ name, image, bio, link, job = 'COOK' }) {
                         <h2 className="font-bold text-orange-500 text-lg uppercase border-b-2">
                             {name}
                         </h2>
-                        <span className="text-orange-500 font-bold text-sm">
-                            {job}
-                        </span>
+                        <span className="text-orange-500 font-bold text-sm">{job}</span>
                     </div>
                 </div>
-            ) : (
-                // BACK
+
+                {/* BACK */}
                 <div
-                    className={`${CARD_BASE} justify-between bg-gray-200 transition-transform duration-500`}
+                    className={`${CARD_BASE} [transform:rotateY(180deg)] justify-between bg-gray-200`}
                 >
-                    <h2 className="text-gray-800 mt-4 text-xl font-semibold">
-                        {name}
-                    </h2>
+                    <h2 className="text-gray-800 mt-4 text-xl font-semibold">{name}</h2>
+
                     <p className="text-gray-800 mt-2 text-xs text-center line-clamp-15">
                         {bio}
                     </p>
@@ -76,17 +66,13 @@ export default function BioCard({ name, image, bio, link, job = 'COOK' }) {
                         rel="noopener noreferrer"
                         aria-label={`${name} GitHub`}
                         className="text-gray-100 mt-4 bg-gray-400 flex gap-1 py-2 px-4 rounded-full hover:scale-110 hover:bg-gray-600 transition"
-                        onClick={(e) => {
-                            e.stopPropagation(); // prevent flip on link click
-                        }}
+                        onClick={(e) => e.stopPropagation()} // don't flip when clicking link
                     >
-                        <span>
-                            <FaGithub className="w-6 h-6" />
-                        </span>
+                        <FaGithub className="w-6 h-6" />
                         <span>Github</span>
                     </a>
                 </div>
-            )}
+            </div>
         </div>
     );
 }
