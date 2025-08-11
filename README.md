@@ -1,19 +1,25 @@
 # Note
 This is a clone of a group project, it has been alter for my person use. For the original project git please click [Here](https://github.com/klu0926/cpan144-group-project-prd).
+Key Changes:
+- Secured API key using Next.js backend
+- Added tomato logo
+- Updated layout and color scheme to match theme
+- Separated search options from query bar
+- Added toggle to hide/show extra search options
+- Added mobile burger menu
+- Optimized mobile layout
+- Added footer
 
-
-# Team 
+# Original project Team 
 - [Jasmine](https://github.com/Jaysandjay)
 - [BossClaw](https://github.com/BossClaw)
 - [kn-mn](https://github.com/kn-mn)
 - [Lu (me)](https://github.com/klu0926)
 
-
 # Vercel Demo
 
-
 - Original Group Version : [https://cpan144-group-project-prd.vercel.app/](https://cpan144-group-project-prd.vercel.app/)
-- Personal Version : (WIP)
+- New Version : [https://group-spoonacular-clone.vercel.app/](https://group-spoonacular-clone.vercel.app/)
 
 
 # Getting Started
@@ -58,7 +64,7 @@ Main page for querying recipes
 * Displays results dynamically
 * Users can add any recipe to their favorites
 
-<img width="1374" height="871" alt="Image" src="https://github.com/user-attachments/assets/aa8c4184-3522-4dce-80d0-6158ecd911a0" />
+<img width="1715" height="896" alt="Image" src="https://github.com/user-attachments/assets/9a8757c9-38c7-4e66-ad3b-f79a185115eb" />
 
 
 **Favorites**
@@ -67,14 +73,16 @@ Displays the user's favorite recipes
 * Provides query form to filter recipes
 * Allows users to remove recipes
 
-<img width="1055" height="711" alt="Image" src="https://github.com/user-attachments/assets/bb09f480-5314-4524-8b61-78c0ea3c4b2c" />
+<img width="1713" height="893" alt="Image" src="https://github.com/user-attachments/assets/c49d562f-4e97-4c51-b7ee-a604df8650c3" />
 
 **About**
 Provides information about the developers
 
-<img width="1053" height="373" alt="Image" src="https://github.com/user-attachments/assets/05173e13-1438-4379-b468-56c772f3bc56" />
+<img width="1712" height="901" alt="Image" src="https://github.com/user-attachments/assets/f874e552-a99a-45c9-97af-2f4cf29bfc1b" />
 
-<img width="1054" height="389" alt="Image" src="https://github.com/user-attachments/assets/a4ae80b2-513c-4d21-9e42-7de85b1e1841" />
+**Mobile**
+
+<img width="494" height="893" alt="Image" src="https://github.com/user-attachments/assets/612b8830-13f9-463a-a939-865a660d516d" />
 
 # State Management Structure
 This application uses a Context to keep the state of the user's favorite recipes. The FavoritesContext provides global access to a list of favorite recipes, enabling components throughout the app to read, add, remove, search, and analyze favorite items without prop-drilling.
@@ -102,8 +110,7 @@ The FormQuery component is a dynamic, interactive search form that allows users 
 * __Reset Functionality:__ Provides a reset button to clear all fields back to their default values.
 * __Loading State:__ Disables the search button and displays a loading spinner when loading is true.
 
-<img width="1203" height="536" alt="image" src="https://github.com/user-attachments/assets/90f7b645-6e60-46cc-85ab-416afbfeef81" />  
-
+<img width="622" height="655" alt="Image" src="https://github.com/user-attachments/assets/067ff1e8-bb93-4a24-b3dd-6128ccdd1f44" />
 
 ## RecipeView.js  
 The RecipeView component displays a recipe in a visually appealing card format, showcasing brief details like the image, title, summary, health stats, and cuisine types. It also includes interactive elements for favoriting and viewing more information in a modal.
@@ -116,8 +123,7 @@ The RecipeView component displays a recipe in a visually appealing card format, 
 * __Conditional Rendering:__ Uses props like `isFavorite`, `showFavoriteButton`, and `showCookingModal` to customize behavior and visibility.
 * __User Experience Enhancements:__ Styled with Tailwind CSS for a clean, responsive layout and hover effects for interaction feedback.
 
-<img width="289" height="390" alt="image" src="https://github.com/user-attachments/assets/88e5a98e-bf46-4d25-abef-4ef971a5e26c" />
-
+<img width="285" height="436" alt="Image" src="https://github.com/user-attachments/assets/ce9b8655-3dc9-495c-8fb9-b7fb0a68f1af" />
 
 ## RecipeList.js  
 The RecipeList component renders a grid of recipe cards using the RecipeView component. It handles the display logic for the list of recipes returned from a search query and manages the favorite status for each item.
@@ -129,8 +135,7 @@ The RecipeList component renders a grid of recipe cards using the RecipeView com
 * __Recipe Count Summary:__ Displays a short message at the bottom to indicate how many recipes are currently shown.
 * __Modular Rendering:__ Separates individual recipe display responsibilities to `RecipeView`, maintaining clean separation of concerns.
 
-<img width="1241" height="874" alt="image" src="https://github.com/user-attachments/assets/dceac46f-1b5c-4924-9453-b96bfc0dd065" />
-
+<img width="1406" height="855" alt="Image" src="https://github.com/user-attachments/assets/1e71a482-9f36-4d55-a01c-fa1e2266a336" />
 
 ## CookingModal.js  
 The CookingModal component is a detailed modal window that displays comprehensive information about a selected recipe, including ingredients, instructions, nutrition, and summary. It supports tab navigation and interactive features like ingredient checklist.
@@ -161,8 +166,7 @@ The FormFavorites component provides a comprehensive filter form for users to na
 * __Reset Functionality:__ Allows clearing all filters with a "Clear All Filters" button that resets form and diet states.
 * __Dynamic UI Feedback:__ Displays current count of filtered recipes versus total, and only shows the reset button when filters are active.
 
-<img width="1176" height="286" alt="image" src="https://github.com/user-attachments/assets/cee37bc0-c192-41f0-8563-b35250743bd5" />
-
+<img width="658" height="436" alt="Image" src="https://github.com/user-attachments/assets/8d531e09-e164-4c3e-b3f7-a2bcdf89c23c" />
 
 ## BioCard.js  
 The BioCard component is an interactive, flip-style profile card that displays a user’s avatar and name on the front, and their bio with a GitHub link on the back. The card flips on click to reveal more information.
@@ -173,8 +177,10 @@ The BioCard component is an interactive, flip-style profile card that displays a
 * __Accessibility:__ GitHub link opens in a new tab.
 * __Styling:__ Uses Tailwind CSS classes.
 
-<img width="205" height="258" alt="image" src="https://github.com/user-attachments/assets/6a788740-0e82-46c4-be01-0c2ce1abe64b" />
-<img width="204" height="251" alt="image" src="https://github.com/user-attachments/assets/4bfc7cb5-96ae-4816-9ffb-18369468605c" />
+<img width="755" height="690" alt="Image" src="https://github.com/user-attachments/assets/b0d1007c-4b0f-4f23-8fb2-66eaacb8d56a" />
+
+<img width="762" height="714" alt="Image" src="https://github.com/user-attachments/assets/a9881965-d196-47fe-8b68-ac2b6944928e" />
+
 
 ## Navbar.js  
 The Navbar component provides a simple navigation bar with links to Home, Favorites, and About Us pages. It highlights the active link based on the current URL path.
@@ -184,4 +190,4 @@ The Navbar component provides a simple navigation bar with links to Home, Favori
 * __Styling:__ Utilizes Tailwind CSS for spacing, colors, rounded corners, and layout with flexbox.
 * __Next.js Integration:__ Uses `Link` from `next/link` for client-side routing.
 
-<img width="233" height="37" alt="image" src="https://github.com/user-attachments/assets/209ce290-e156-4fd9-a6ce-b0a301a717fa" />
+<img width="631" height="109" alt="Image" src="https://github.com/user-attachments/assets/d30b96c1-39fc-45b0-8dc4-86182666b95f" />
