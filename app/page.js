@@ -173,7 +173,7 @@ export default function QueryPage() {
 		<div className="page-wrapper">
 
 			<header className="text-center mb-4">
-				<h1 className="text-2xl md:text-4xl font-bold text-orange-500 my-2">FIND RECIPES</h1>
+				<h1 className="text-2xl md:text-4xl font-bold text-orange-600 my-2">FIND RECIPES</h1>
 			</header>
 
 			{/* WIP - SEARCH FORM COMPONENT */}

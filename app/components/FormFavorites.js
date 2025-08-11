@@ -84,7 +84,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 		<div className="w-full p-4 px-6 rounded-2xl bg-orange-100 z-10">
 			{/* Toggle header */}
 			{showMoreForm ? (
-				<div className="w-full flex items-center justify-end text-orange-500">
+				<div className="w-full flex items-center justify-end text-orange-600">
 					<button
 						type="button"
 						className="flex items-center gap-2 cursor-pointer"
@@ -102,7 +102,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 				</div>
 			) : (
 				<div
-					className="w-full text-center flex items-center justify-end text-orange-500 rounded-md cursor-pointer"
+					className="w-full text-center flex items-center justify-end text-orange-600 rounded-md cursor-pointer"
 					onClick={() => setShowMoreForm(true)}
 				>
 					Show options
@@ -122,7 +122,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 				<>
 					<div className="flex justify-between items-center mb-4">
 						<div className="w-full">
-							<h2 className="text-lg font-semibold text-orange-500">Filter Your Favorites</h2>
+							<h2 className="text-lg font-semibold text-orange-600">Filter Your Favorites</h2>
 							<p className="text-sm text-gray-600">
 								{filteredCount} of {totalRecipes} recipes shown
 							</p>
@@ -150,7 +150,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 								name="sortBy"
 								value={formData.sortBy}
 								onChange={handleInputChange}
-								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
 							>
 								{sortOptions.map((option) => (
 									<option key={option.value} value={option.value}>{option.label}</option>
@@ -167,7 +167,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 								name="maxReadyTime"
 								value={formData.maxReadyTime}
 								onChange={handleInputChange}
-								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
 							>
 								{timeOptions.map((option) => (
 									<option key={option.value} value={option.value}>{option.label}</option>
@@ -184,7 +184,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 								name="cuisine"
 								value={formData.cuisine}
 								onChange={handleInputChange}
-								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
 							>
 								<option value="all">All Cuisines</option>
 								{cuisineOptions.map((cuisine) => (
@@ -208,7 +208,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 								value={formData.includeIngredients}
 								onChange={handleInputChange}
 								placeholder="e.g., chicken, tomatoes, cheese"
-								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
 							/>
 							<p className="text-xs text-gray-500 mt-1">
 								Find recipes containing specific ingredients
@@ -226,7 +226,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 											name={diet}
 											checked={checked}
 											onChange={handleDietChange}
-											className="rounded border-orange-300 accent-orange-500 focus:ring-2 focus:ring-orange-500"
+											className="rounded border-orange-300 accent-orange-600 focus:ring-2 focus:ring-orange-600"
 										/>
 										<span className="text-sm text-gray-700">
 											{diet === "glutenFree"

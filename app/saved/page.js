@@ -109,7 +109,7 @@ export default function FavoritesPage() {
 	return (
 		<div className="page-wrapper">
 			<header className="text-center mb-4">
-				<h1 className="text-2xl md:text-4xl font-bold text-orange-500 my-2">SAVED RECIPES</h1>
+				<h1 className="text-2xl md:text-4xl font-bold text-orange-600 my-2">SAVED RECIPES</h1>
 				{favorites.length > 0 && (
 					<div className="mt-4 flex justify-center items-center gap-4">
 						<span className="text-sm text-gray-500">
@@ -129,13 +129,13 @@ export default function FavoritesPage() {
 			{favorites.length === 0 ? (
 				<div className="text-center py-16">
 					<div className="text-6xl mb-4">🍽️</div>
-					<h2 className="text-2xl font-semibold text-orange-500 mb-2">
+					<h2 className="text-2xl font-semibold text-orange-600 mb-2">
 						No Favorites Yet
 					</h2>
 
 					<Link
 						href="/"
-						className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition hover:scale-95"
+						className="inline-block bg-orange-600 hover:bg-orange-500 text-white font-semibold py-3 px-6 rounded-lg transition hover:scale-95"
 					>
 						Discover recipes!
 					</Link>

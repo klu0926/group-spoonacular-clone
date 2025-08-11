@@ -52,7 +52,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 				{showFavoriteButton && (
 					<button
 						onClick={handleFavoriteClick}
-						className={`absolute z-15 top-4 left-2 p-1 shadow-md rounded-full transition-colors ${isFavorite ? "bg-orange-500 text-white hover:bg-orange-600" : "bg-white text-gray-400 hover:text-orange-500 hover:bg-gray-50"}`}
+						className={`absolute z-15 top-4 left-2 p-1 shadow-md rounded-full transition-colors ${isFavorite ? "bg-orange-600 text-white hover:bg-orange-600" : "bg-white text-gray-400 hover:text-orange-600 hover:bg-gray-50"}`}
 						aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
 					>
 						<svg
@@ -94,7 +94,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 							{getDietBadges().map((badge, index) => (
 								<span
 									key={index}
-									className="px-2 py-1 bg-orange-100 text-orange-500 text-xs rounded-full"
+									className="px-2 py-1 bg-orange-100 text-orange-600 text-xs rounded-full"
 								>
 									{badge}
 								</span>
@@ -140,7 +140,7 @@ export default function RecipeView({ recipe, isFavorite, onToggleFavorite, showF
 						{showCookingModal && (
 							<button
 								onClick={handleViewRecipe}
-								className=" bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-md text-sm font-medium transition cursor-pointer hover:scale-95"
+								className=" bg-orange-600 hover:bg-orange-500 text-white py-2 rounded-md text-sm font-medium transition cursor-pointer hover:scale-95"
 							>
 								View Recipe
 							</button>

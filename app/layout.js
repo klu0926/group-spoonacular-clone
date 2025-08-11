@@ -1,6 +1,7 @@
 // AUTHORS: Lu, Darryl
 
 // CONTEXT
+import Image from "next/image";
 import "./contexts/FavoritesContext";
 import { FavoritesProvider } from "./contexts/FavoritesContext";
 
@@ -67,6 +68,12 @@ export default function RootLayout({ children }) {
 
 					{/* footer*/}
 					<div className="flex flex-col justify-center items-center py-5 w-full mt-5 text-center">
+
+						<div className="block md:hidden">
+							<Image width={150} height={150} alt="logo" src={"/cookbook2.png"} />
+						</div>
+
+
 						<p className="text-gray-500 text-sm">
 							Recipe data provided by{" "}
 							<a

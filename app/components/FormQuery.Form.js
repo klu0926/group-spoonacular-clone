@@ -19,7 +19,7 @@ export default function FormQueryForm() {
 
   return !showMoreForm ? (
     <div
-      className="w-full mt-5 py-2 text-center flex items-center justify-center text-orange-500 bg-orange-100 rounded-md cursor-pointer"
+      className="w-full mt-5 py-2 text-center flex items-center justify-center text-orange-600 bg-orange-100 rounded-md cursor-pointer"
       onClick={() => setShowMoreForm(true)}
     >
       Show options
@@ -41,7 +41,7 @@ export default function FormQueryForm() {
   ) : (
     <div className="w-full p-2 rounded-2xl bg-orange-100 mt-5">
       <div
-        className="w-full text-center flex items-center justify-center text-orange-500 bg-orange-100 rounded-md mb-5 cursor-pointer"
+        className="w-full text-center flex items-center justify-center text-orange-600 bg-orange-100 rounded-md mb-5 cursor-pointer"
         onClick={() => setShowMoreForm(false)}
       >
         Hide options
@@ -79,7 +79,7 @@ export default function FormQueryForm() {
                 name="cuisine"
                 value={formData.cuisine}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
               >
                 <option value="">Any Cuisine</option>
                 {cuisineOptions.map((cuisine) => (
@@ -105,7 +105,7 @@ export default function FormQueryForm() {
                 value={formData.includeIngredients}
                 onChange={handleInputChange}
                 placeholder="e.g., tomatoes, cheese, basil"
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
               />
             </div>
 
@@ -124,7 +124,7 @@ export default function FormQueryForm() {
                 value={formData.excludeIngredients}
                 onChange={handleInputChange}
                 placeholder="e.g., nuts, shellfish"
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
               />
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function FormQueryForm() {
                 name="diet"
                 value={formData.diet}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
               >
                 <option value="">Any Diet</option>
                 {dietOptions.map((diet) => (
@@ -168,7 +168,7 @@ export default function FormQueryForm() {
                 name="intolerances"
                 value={formData.intolerances}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
               >
                 <option value="">No Restrictions</option>
                 {intoleranceOptions.map((intolerance) => (
@@ -196,7 +196,7 @@ export default function FormQueryForm() {
                 placeholder="e.g., 30"
                 min="1"
                 max="300"
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
               />
             </div>
           </div>
@@ -219,7 +219,7 @@ export default function FormQueryForm() {
               onChange={handleInputChange}
               placeholder="e.g., 200"
               min="0"
-              className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+              className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
             />
           </div>
           <div>
@@ -237,7 +237,7 @@ export default function FormQueryForm() {
               onChange={handleInputChange}
               placeholder="e.g., 800"
               min="0"
-              className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+              className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
             />
           </div>
         </div>
@@ -255,7 +255,7 @@ export default function FormQueryForm() {
             name="sort"
             value={formData.sort}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-500"
+            className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
           >
             {sortOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -270,7 +270,7 @@ export default function FormQueryForm() {
           <button
             type="submit"
             disabled={loading}
-            className="flex-1 bg-orange-500 hover:bg-orange-600 disabled:bg-orange-400 text-white font-semibold py-3 px-6 rounded-lg transition cursor-pointer hover:scale-95"
+            className="flex-1 bg-orange-600 hover:bg-orange-600 disabled:bg-orange-400 text-white font-semibold py-3 px-6 rounded-lg transition cursor-pointer hover:scale-95"
           >
             {loading ? "Loading..." : "Search Recipes"}
           </button>

@@ -33,7 +33,7 @@ export default function FormQueryFormSearchbar() {
               value={formData.query}
               onChange={handleInputChange}
               placeholder="e.g., pasta, chicken, chocolate cake..."
-              className="w-full px-4 py-2 border-4 border-orange-400 rounded-4xl focus:outline-none focus:border-orange-500 text-orange-500 font-bold"
+              className="w-full px-4 py-2 border-4 border-orange-600 rounded-4xl focus:outline-none focus:border-orange-600 text-orange-600 font-bold"
             />
 
             {
@@ -46,7 +46,7 @@ export default function FormQueryFormSearchbar() {
                 // reset query button
                 <button
                   type="button"
-                  className="absolute right-5 top-2 text-orange-500 p-1 rounded-4xl hover:bg-gray-200 hover:scale-90 cursor-pointer transition"
+                  className="absolute right-5 top-2 text-orange-600 p-1 rounded-4xl hover:bg-gray-200 hover:scale-90 cursor-pointer transition"
                   onClick={handleQueryReset}
                 >
                   <svg
