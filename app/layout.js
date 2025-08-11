@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
 
 // APP META DATA
 export const metadata = {
-	title: "CPAN114 - Spoonacular API",
+	title: "Cook Book",
 	description: "A nice little Spoonacular API APP to find new recipes, save them, and view them for cooking!",
 };
 
@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
 					{/* content page*/}
 					<div className="flex flex-col items-center w-screen min-h-screen">
 						{/* background images */}
-						<div className="relative w-[1800px] bg-red-300 h-0 z-0">
+						<div className="hidden md:block relative w-[1800px] bg-red-300 h-0 z-0">
 
 							<div className="absolute top-[-40px] right-50 opacity-5 transform rotate-12">
 								<img width="250" height="250" src="https://img.icons8.com/ios/250/salad--v1.png" alt="salad--v1" />
