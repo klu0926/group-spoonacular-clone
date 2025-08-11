@@ -18,9 +18,7 @@ Key Changes:
 
 # Vercel Demo
 
-- Original Group Version : [https://cpan144-group-project-prd.vercel.app/](https://cpan144-group-project-prd.vercel.app/)
 - New Version : [https://group-spoonacular-clone.vercel.app/](https://group-spoonacular-clone.vercel.app/)
-
 
 # Getting Started
 
