@@ -40,7 +40,7 @@ npm i
 
 4. Create .env file with API key
 ```
-NEXT_PUBLIC_API_KEY= your key here
+SPOONACULAR_API_KEY= your key here
 ```
 
 Run the development server:
