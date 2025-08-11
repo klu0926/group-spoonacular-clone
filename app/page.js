@@ -135,7 +135,7 @@ export default function QueryPage() {
 					<button
 						onClick={loadMoreRecipes}
 						disabled={loading}
-						className="bg-orange-500 hover:bg-orange-600 disabled:bg-orange-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors cursor-pointer"
+						className="bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors cursor-pointer"
 					>
 						{loading ? "Loading..." : "Load More Recipes"}
 					</button>
