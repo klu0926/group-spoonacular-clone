@@ -61,228 +61,186 @@ export default function FormQueryForm() {
         </svg>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6 px-4 py-2">
-        {/* TWO COLUMN LAYOUT */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* LEFT COLUMN */}
-          <div className="space-y-4">
-            {/* CUISINE */}
-            <div>
-              <label
-                htmlFor="cuisine"
-                className="block text-sm font-bold text-gray-500 mb-2"
-              >
-                Cuisine Type
-              </label>
-              <select
-                id="cuisine"
-                name="cuisine"
-                value={formData.cuisine}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
-              >
-                <option value="">Any Cuisine</option>
-                {cuisineOptions.map((cuisine) => (
-                  <option key={cuisine} value={cuisine}>
-                    {cuisine}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* INCLUDE INGREDIENTS */}
-            <div>
-              <label
-                htmlFor="includeIngredients"
-                className="block text-sm font-bold text-gray-500 mb-2"
-              >
-                Include Ingredients
-              </label>
-              <input
-                type="text"
-                id="includeIngredients"
-                name="includeIngredients"
-                value={formData.includeIngredients}
-                onChange={handleInputChange}
-                placeholder="e.g., tomatoes, cheese, basil"
-                  className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
-              />
-            </div>
-
-            {/* EXCLUDE INGREDIENTS */}
-            <div>
-              <label
-                htmlFor="excludeIngredients"
-                className="block text-sm font-bold text-gray-500 mb-2"
-              >
-                Exclude Ingredients
-              </label>
-              <input
-                type="text"
-                id="excludeIngredients"
-                name="excludeIngredients"
-                value={formData.excludeIngredients}
-                onChange={handleInputChange}
-                placeholder="e.g., nuts, shellfish"
-                  className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
-              />
-            </div>
+      <form onSubmit={handleSubmit} className="px-3 py-2">
+        {/* Controls grid: packs tightly, wraps as needed */}
+        <div
+          className="grid gap-3"
+          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}
+        >
+          {/* Cuisine */}
+          <div className="space-y-1">
+            <label htmlFor="cuisine" className="block text-xs font-semibold text-gray-500">
+              Cuisine
+            </label>
+            <select
+              id="cuisine"
+              name="cuisine"
+              value={formData.cuisine}
+              onChange={handleInputChange}
+              className="w-full px-2 py-1.5 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-700 bg-orange-50 text-sm"
+            >
+              <option value="">Any</option>
+              {cuisineOptions.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
           </div>
 
-          {/* RIGHT COLUMN */}
-          <div className="space-y-4">
-            {/* Diet */}
-            <div>
-              <label
-                htmlFor="diet"
-                className="block text-sm font-bold text-gray-500 mb-2"
-              >
-                Diet Type
-              </label>
-              <select
-                id="diet"
-                name="diet"
-                value={formData.diet}
-                onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
-              >
-                <option value="">Any Diet</option>
-                {dietOptions.map((diet) => (
-                  <option key={diet} value={diet}>
-                    {diet}
-                  </option>
-                ))}
-              </select>
-            </div>
+          {/* Diet */}
+          <div className="space-y-1">
+            <label htmlFor="diet" className="block text-xs font-semibold text-gray-500">
+              Diet
+            </label>
+            <select
+              id="diet"
+              name="diet"
+              value={formData.diet}
+              onChange={handleInputChange}
+              className="w-full px-2 py-1.5 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-700 bg-orange-50 text-sm"
+            >
+              <option value="">Any</option>
+              {dietOptions.map((d) => (
+                <option key={d} value={d}>{d}</option>
+              ))}
+            </select>
+          </div>
 
-            {/* Intolerances */}
-            <div>
-              <label
-                htmlFor="intolerances"
-                className="block text-sm font-bold text-gray-500 mb-2"
-              >
-                Food Intolerances
-              </label>
-              <select
-                id="intolerances"
-                name="intolerances"
-                value={formData.intolerances}
-                onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
-              >
-                <option value="">No Restrictions</option>
-                {intoleranceOptions.map((intolerance) => (
-                  <option key={intolerance} value={intolerance}>
-                    {intolerance}
-                  </option>
-                ))}
-              </select>
-            </div>
+          {/* Intolerances */}
+          <div className="space-y-1">
+            <label htmlFor="intolerances" className="block text-xs font-semibold text-gray-500">
+              Intolerances
+            </label>
+            <select
+              id="intolerances"
+              name="intolerances"
+              value={formData.intolerances}
+              onChange={handleInputChange}
+              className="w-full px-2 py-1.5 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-700 bg-orange-50 text-sm"
+            >
+              <option value="">None</option>
+              {intoleranceOptions.map((t) => (
+                <option key={t} value={t}>{t}</option>
+              ))}
+            </select>
+          </div>
 
-            {/* Max Ready Time */}
-            <div>
-              <label
-                htmlFor="maxReadyTime"
-                className="block text-sm font-bold text-gray-500 mb-2"
-              >
-                Max Cooking Time (minutes)
-              </label>
+          {/* Max Ready Time */}
+          <div className="space-y-1">
+            <label htmlFor="maxReadyTime" className="block text-xs font-semibold text-gray-500">
+              Max Time (min)
+            </label>
+            <input
+              type="number"
+              id="maxReadyTime"
+              name="maxReadyTime"
+              value={formData.maxReadyTime}
+              onChange={handleInputChange}
+              placeholder="e.g., 30"
+              min="1"
+              max="300"
+              className="w-full px-2 py-1.5 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-700 bg-orange-50 text-sm"
+            />
+          </div>
+
+          {/* Include Ingredients */}
+          <div className="space-y-1">
+            <label htmlFor="includeIngredients" className="block text-xs font-semibold text-gray-500">
+              Include
+            </label>
+            <input
+              type="text"
+              id="includeIngredients"
+              name="includeIngredients"
+              value={formData.includeIngredients}
+              onChange={handleInputChange}
+              placeholder="tomatoes, cheese, basil"
+              className="w-full px-2 py-1.5 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-700 bg-orange-50 text-sm"
+            />
+          </div>
+
+          {/* Exclude Ingredients */}
+          <div className="space-y-1">
+            <label htmlFor="excludeIngredients" className="block text-xs font-semibold text-gray-500">
+              Exclude
+            </label>
+            <input
+              type="text"
+              id="excludeIngredients"
+              name="excludeIngredients"
+              value={formData.excludeIngredients}
+              onChange={handleInputChange}
+              placeholder="nuts, shellfish"
+              className="w-full px-2 py-1.5 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-700 bg-orange-50 text-sm"
+            />
+          </div>
+
+          {/* Calories Range (inline pair) */}
+          <div className="space-y-1">
+            <span className="block text-xs font-semibold text-gray-500">Calories</span>
+            <div className="flex items-center gap-2">
               <input
                 type="number"
-                id="maxReadyTime"
-                name="maxReadyTime"
-                value={formData.maxReadyTime}
+                id="minCalories"
+                name="minCalories"
+                value={formData.minCalories}
                 onChange={handleInputChange}
-                placeholder="e.g., 30"
-                min="1"
-                max="300"
-                  className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
+                placeholder="Min"
+                min="0"
+                className="w-full px-2 py-1.5 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-700 bg-orange-50 text-sm"
+              />
+              <span className="text-gray-400 text-sm">–</span>
+              <input
+                type="number"
+                id="maxCalories"
+                name="maxCalories"
+                value={formData.maxCalories}
+                onChange={handleInputChange}
+                placeholder="Max"
+                min="0"
+                className="w-full px-2 py-1.5 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-700 bg-orange-50 text-sm"
               />
             </div>
           </div>
-        </div>
 
-        {/* Calories Range */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label
-              htmlFor="minCalories"
-              className="block text-sm font-bold text-gray-500 mb-2"
-            >
-              Min Calories
+          {/* Sort */}
+          <div className="space-y-1">
+            <label htmlFor="sort" className="block text-xs font-semibold text-gray-500">
+              Sort By
             </label>
-            <input
-              type="number"
-              id="minCalories"
-              name="minCalories"
-              value={formData.minCalories}
+            <select
+              id="sort"
+              name="sort"
+              value={formData.sort}
               onChange={handleInputChange}
-              placeholder="e.g., 200"
-              min="0"
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="maxCalories"
-              className="block text-sm font-bold text-gray-500 mb-2"
+              className="w-full px-2 py-1.5 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-700 bg-orange-50 text-sm"
             >
-              Max Calories
-            </label>
-            <input
-              type="number"
-              id="maxCalories"
-              name="maxCalories"
-              value={formData.maxCalories}
-              onChange={handleInputChange}
-              placeholder="e.g., 800"
-              min="0"
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
-            />
+              {sortOptions.map((o) => (
+                <option key={o.value} value={o.value}>{o.label}</option>
+              ))}
+            </select>
           </div>
-        </div>
-
-        {/* SORT OPTIONS */}
-        <div>
-          <label
-            htmlFor="sort"
-            className="block text-sm font-bold text-gray-500 mb-2"
-          >
-            Sort Results By
-          </label>
-          <select
-            id="sort"
-            name="sort"
-            value={formData.sort}
-            onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
-          >
-            {sortOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
         </div>
 
         {/* Buttons */}
-        <div className="flex gap-4 pt-4">
+        <div className="flex gap-3 pt-4">
           <button
             type="submit"
             disabled={loading}
-            className="flex-1 bg-orange-600 hover:bg-orange-600 disabled:bg-orange-400 text-white font-semibold py-3 px-6 rounded-lg transition cursor-pointer hover:scale-95"
+            className="flex-1 bg-orange-600 hover:bg-orange-600 disabled:bg-orange-400 text-white font-semibold py-2.5 px-4 rounded-lg transition cursor-pointer hover:scale-99 text-sm"
           >
             {loading ? "Loading..." : "Search Recipes"}
           </button>
           <button
             type="button"
             onClick={handleReset}
-            className="px-6 py-3 bg-gray-200 text-gray-500 font-semibold rounded-lg hover:bg-gray-300 transition cursor-pointer hover:scale-95"
+            className="px-4 py-2.5 bg-gray-200 text-gray-600 font-semibold rounded-lg hover:bg-gray-300 transition cursor-pointer hover:scale-95 text-sm"
           >
             Reset
           </button>
         </div>
       </form>
+
+
     </div>
   );
 }

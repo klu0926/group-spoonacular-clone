@@ -1,5 +1,4 @@
 // QUERY API PAGE
-// AUTHORS Lu, Jasmine, Clarance, Noah, Darryl
 "use client";
 
 import { useState } from "react";
