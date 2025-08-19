@@ -43,19 +43,19 @@ export default function RootLayout({ children }) {
 						{/* background images */}
 						<div className="hidden md:block relative w-[1800px] bg-red-300 h-0 z-0">
 
-							<div className="absolute top-[-40px] right-50 opacity-5 transform rotate-12">
+							<div className="absolute top-[-40px] right-50 opacity-5 transform rotate-12 float-ani">
 								<img width="250" height="250" src="https://img.icons8.com/ios/250/salad--v1.png" alt="salad--v1" />
 							</div>
 
-							<div className="absolute top-40 left-50 opacity-5 transform rotate-260">
+							<div className="absolute top-40 left-20 opacity-5 transform rotate-260 float-ani [animation-delay:2s]">
 								<img width="250" height="250" src="https://img.icons8.com/ios/250/pizza.png" alt="pizza" />
 							</div>
 
-							<div className="absolute top-150 left-24 opacity-5 transform rotate-6">
+							<div className="absolute top-150 left-24 opacity-5 transform rotate-6 float-ani [animation-delay:1.4s]">
 								<img width="250" height="250" src="https://img.icons8.com/ios/250/doughnut.png" alt="doughnut" />
 							</div>
 
-							<div className="absolute top-170 right-56 opacity-5 transform rotate-170">
+							<div className="absolute top-170 right-56 opacity-5 transform rotate-170 float-ani [animation-delay:7s]">
 								<img width="250" height="250" src="https://img.icons8.com/ios/250/sandwich.png" alt="sandwich" />
 							</div>
 						</div>
