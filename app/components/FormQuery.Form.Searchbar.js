@@ -18,7 +18,7 @@ export default function FormQueryFormSearchbar() {
 
 
   return (
-    <div className="w-full mt-1">
+    <div className="w-full max-w-2xl mt-1">
       <form
         onSubmit={handleSubmit}
         className="space-y-6"

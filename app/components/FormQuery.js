@@ -121,7 +121,7 @@ const FormQuery = ({ onSearch, loading, children }) => {
 
 	return (
 		<FormQueryContext.Provider value={value}>
-			<div className="w-full flex flex-col items-center max-w-2xl ">
+			<div className="w-full flex flex-col items-center max-w-6xl z-20">
 				{children}
 			</div>
 		</FormQueryContext.Provider>

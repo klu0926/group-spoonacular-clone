@@ -143,7 +143,7 @@ export default function FavoritesPage() {
 			) : (
 				<>
 					{/* FAVORITE FILTER FORM STUB w/PROPS */}
-					<div className="w-full flex justify-center max-w-2xl">
+					<div className="w-full flex justify-center max-w-6xl">
 						<FormFavorites
 							onFilter={handleFilter}
 							totalRecipes={favorites.length}

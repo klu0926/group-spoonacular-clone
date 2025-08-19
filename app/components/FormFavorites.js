@@ -150,7 +150,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 								name="sortBy"
 								value={formData.sortBy}
 								onChange={handleInputChange}
-								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
 							>
 								{sortOptions.map((option) => (
 									<option key={option.value} value={option.value}>{option.label}</option>
@@ -167,7 +167,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 								name="maxReadyTime"
 								value={formData.maxReadyTime}
 								onChange={handleInputChange}
-								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
 							>
 								{timeOptions.map((option) => (
 									<option key={option.value} value={option.value}>{option.label}</option>
@@ -184,7 +184,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 								name="cuisine"
 								value={formData.cuisine}
 								onChange={handleInputChange}
-								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
 							>
 								<option value="all">All Cuisines</option>
 								{cuisineOptions.map((cuisine) => (
@@ -208,7 +208,7 @@ export default function FormFavorites({ onFilter, totalRecipes, filteredCount })
 								value={formData.includeIngredients}
 								onChange={handleInputChange}
 								placeholder="e.g., chicken, tomatoes, cheese"
-								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+								className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
 							/>
 							<p className="text-xs text-gray-500 mt-1">
 								Find recipes containing specific ingredients

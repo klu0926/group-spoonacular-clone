@@ -79,7 +79,7 @@ export default function FormQueryForm() {
                 name="cuisine"
                 value={formData.cuisine}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
               >
                 <option value="">Any Cuisine</option>
                 {cuisineOptions.map((cuisine) => (
@@ -105,7 +105,7 @@ export default function FormQueryForm() {
                 value={formData.includeIngredients}
                 onChange={handleInputChange}
                 placeholder="e.g., tomatoes, cheese, basil"
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+                  className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
               />
             </div>
 
@@ -124,7 +124,7 @@ export default function FormQueryForm() {
                 value={formData.excludeIngredients}
                 onChange={handleInputChange}
                 placeholder="e.g., nuts, shellfish"
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+                  className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
               />
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function FormQueryForm() {
                 name="diet"
                 value={formData.diet}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+                  className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
               >
                 <option value="">Any Diet</option>
                 {dietOptions.map((diet) => (
@@ -168,7 +168,7 @@ export default function FormQueryForm() {
                 name="intolerances"
                 value={formData.intolerances}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+                  className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
               >
                 <option value="">No Restrictions</option>
                 {intoleranceOptions.map((intolerance) => (
@@ -196,7 +196,7 @@ export default function FormQueryForm() {
                 placeholder="e.g., 30"
                 min="1"
                 max="300"
-                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+                  className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
               />
             </div>
           </div>
@@ -219,7 +219,7 @@ export default function FormQueryForm() {
               onChange={handleInputChange}
               placeholder="e.g., 200"
               min="0"
-              className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
             />
           </div>
           <div>
@@ -237,7 +237,7 @@ export default function FormQueryForm() {
               onChange={handleInputChange}
               placeholder="e.g., 800"
               min="0"
-              className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+                className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
             />
           </div>
         </div>
@@ -255,7 +255,7 @@ export default function FormQueryForm() {
             name="sort"
             value={formData.sort}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600"
+              className="w-full px-3 py-2 border border-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 text-orange-600 bg-orange-50"
           >
             {sortOptions.map((option) => (
               <option key={option.value} value={option.value}>
